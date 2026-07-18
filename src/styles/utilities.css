@@ -1,0 +1,101 @@
+/* Layout */
+
+main {
+  width: 100%;
+}
+
+section{
+  min-height: 100vh;
+  padding: 4rem;
+  background: transparent;
+}
+
+/* Button */
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding-inline: 1.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  backdrop-filter: blur(5px);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.primary-button svg,
+.secondary-button svg {
+  transition: transform var(--transition-fast);
+}
+
+.primary-button {
+  border: 1px solid transparent;
+  background: var(--color-primary);
+  color: var(--color-text);
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
+}
+
+.primary-button:hover {
+  filter: brightness(1.1) contrast(1.05);
+  box-shadow: 
+    0 0 25px rgba(239, 68, 68, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.primary-button:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.primary-button:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.3);
+}
+
+.primary-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.secondary-button {
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  background: rgba(17, 17, 17, 0.5);
+  color: var(--color-text);
+}
+
+.secondary-button svg {
+  color: var(--color-primary);
+}
+
+.secondary-button:hover {
+  border-color: var(--color-primary-hover);
+  background: var(--color-primary-soft);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.25);
+}
+
+.secondary-button:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.secondary-button:active {
+  transform: scale(0.97);
+  background: rgba(220, 38, 38, 0.2);
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.35);
+}
+
+.secondary-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}

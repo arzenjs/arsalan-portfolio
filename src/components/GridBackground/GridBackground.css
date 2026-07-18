@@ -1,0 +1,29 @@
+/* Root */
+
+.grid-background {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 20%,
+    transparent 75%
+  );
+}

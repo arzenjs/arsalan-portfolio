@@ -1,0 +1,24 @@
+/* Root */
+
+.cursor-glow {
+  position: fixed;
+
+  width: 320px;
+  height: 320px;
+
+  border-radius: var(--radius-full);
+
+  background: var(--color-primary-soft);
+
+  filter: blur(80px);
+
+  opacity: 0.5;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  z-index: -1;
+
+  /* TODO: Connect position to cursor movement. */
+}

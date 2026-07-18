@@ -1,0 +1,150 @@
+.experience{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 6vh, 4rem) clamp(1.5rem, 5vw, 4rem);
+  box-sizing: border-box;
+}
+
+.exp-container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.exp-grid-cell {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md, 12px);
+  padding: 2.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.exp-cell-header {
+  gap: 1rem;
+  background: transparent;
+  border-color: transparent;
+  padding-inline: 0;
+}
+
+.exp-header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exp-status-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.exp-eyebrow {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-family);
+}
+
+.exp-heading {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+}
+
+.exp-cell-node {
+  gap: 2rem;
+  transition: border-color var(--transition-fast, 0.25s ease),
+              transform var(--transition-fast, 0.25s ease);
+}
+
+.exp-cell-node:hover {
+  border-color: rgba(229, 72, 77, 0.4);
+  transform: translateY(-2px);
+}
+
+.exp-node-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 0.75rem;
+}
+
+.exp-node-index {
+  color: var(--color-text-muted);
+}
+
+.exp-node-period {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.exp-node-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exp-node-role {
+  font-size: 1.35rem;
+  color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.exp-node-company {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.exp-node-description {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+.exp-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.exp-tech-pill {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+@media (min-width: 992px) {
+  .exp-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 2rem;
+  }
+
+  .exp-cell-header {
+    grid-column: span 2;
+    padding-bottom: 1rem;
+  }
+}
