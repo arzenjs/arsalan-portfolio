@@ -12,19 +12,22 @@
 
 .projects-container {
   width: 100%;
-  max-width: 1200px;
   height: 80vh;
   margin: 0 auto;
-  display: grid;
+  display: grid; 
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  background: rgba(13, 13, 13, 0.75);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 16px);
+  padding: clamp(2rem, 4vw, 3.25rem);
+
 }
 
 .projects-sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-bottom: 1px solid var(--color-border);
   padding-bottom: 2rem;
 }
 
@@ -44,29 +47,19 @@
 }
 
 .projects-system-eyebrow {
-  color: var(--color-text-secondary);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-family: var(--font-family);
+  letter-spacing: 0.1em;
 }
 
 .projects-system-heading {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
+  line-height: 1.1;
   color: var(--color-text);
   letter-spacing: -0.03em;
-  max-width: 22rem;
-}
-
-.projects-system-footer {
-  display: none;
-  font-family: monospace;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.05em;
 }
 
 .projects-scroll-deck {
@@ -74,51 +67,57 @@
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: auto;
-  padding-right: 0.5rem;
+  padding-right: 0.75rem;
+  scroll-behavior: smooth;
 }
 
+/* Custom Styled Scrollbar */
 .projects-scroll-deck::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
+
 .projects-scroll-deck::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
 }
+
 .projects-scroll-deck::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 2px;
+  background: rgba(220, 38, 38, 0.3);
+  border-radius: 4px;
+}
+
+.projects-scroll-deck::-webkit-scrollbar-thumb:hover {
+  background: rgba(220, 38, 38, 0.6);
 }
 
 .projects-deck-card {
-  background: var(--color-surface, #0a0a0a);
-  border: 1px solid var(--color-border, #1a1a1a);
-  border-radius: var(--radius-md, 12px);
-  padding: 2.25rem 2rem;
+  background: rgba(17, 17, 17, 0.4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-  box-sizing: border-box;
-  transition: border-color var(--transition-fast, 0.25s ease),
-              background var(--transition-fast, 0.25s ease);
+  gap: 1.25rem;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform, opacity;
 }
 
 .projects-deck-card:hover {
-  border-color: rgba(229, 72, 77, 0.4);
-  background: rgba(255, 255, 255, 0.01);
+  border-color: rgba(220, 38, 38, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(220, 38, 38, 0.12);
 }
 
 .projects-card-topline {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-  padding-bottom: 1rem;
 }
 
-.projects-card-index {
+.projects-card-url {
   font-family: monospace;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  color: var(--color-primary);
   text-transform: uppercase;
 }
 
@@ -159,40 +158,6 @@
 
 @media (min-width: 992px) {
   .projects-container {
-    grid-template-columns: 340px 1fr;
-    gap: 4.5rem;
-    height: 65vh;
-  }
-
-  .projects-sidebar {
-    border-bottom: none;
-    border-right: 1px solid var(--color-border);
-    padding-bottom: 0;
-    padding-right: 3rem;
-  }
-
-  .projects-system-footer {
-    display: block;
-  }
-
-  .projects-scroll-deck {
-    flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-right: 0;
-    padding-bottom: 1rem;
-    align-items: stretch;
-  }
-
-  .projects-scroll-deck::-webkit-scrollbar {
-    height: 4px;
-    width: auto;
-  }
-
-  .projects-deck-card {
-    min-width: 400px;
-    max-width: 400px;
-    height: 100%;
-    min-height: auto;
+    grid-template-columns: 0.9fr 1.1fr;
   }
 }

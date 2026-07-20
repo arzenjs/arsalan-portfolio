@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: var(--navbar-height);
   background: transparent;
   backdrop-filter: blur(12px);

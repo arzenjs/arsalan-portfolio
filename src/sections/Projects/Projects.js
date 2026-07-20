@@ -1,5 +1,22 @@
+"use client";
+
 import { siteData } from "@/constants/siteData";
+import { motion } from "motion/react";
 import "./Projects.css";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.12,
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  }),
+};
 
 export default function Projects() {
   const { projects } = siteData;
@@ -8,7 +25,13 @@ export default function Projects() {
     <section id="projects" className="projects" aria-labelledby="projects">
       <div className="projects-container">
         
-        <div className="projects-sidebar">
+        <motion.div 
+          className="projects-sidebar"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="projects-tag-lockup">
             <span className="projects-telemetry-dot" aria-hidden="true"></span>
             <span className="projects-system-eyebrow">Projects</span>
@@ -19,14 +42,21 @@ export default function Projects() {
           <div className="projects-system-footer">
             <span className="projects-system-status"></span>
           </div>
-        </div>
+        </motion.div>
 
         <div className="projects-scroll-deck">
           {projects.map((project, index) => (
-            <article key={project.title} className="projects-deck-card">
-              
+            <motion.article 
+              key={project.title} 
+              className="projects-deck-card"
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={cardVariants}
+            >
               <div className="projects-card-topline">
-                <span className="projects-card-index">0{index + 1} // {project.category}</span>
+                <span className="projects-card-url">{project.url}</span>
               </div>
 
               <div className="projects-card-main">
@@ -43,8 +73,7 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-
-            </article>
+            </motion.article>
           ))}
         </div>
 

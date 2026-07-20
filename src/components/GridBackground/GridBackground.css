@@ -1,11 +1,9 @@
-/* Root */
-
 .grid-background {
-  position: absolute;
+  position: fixed;
   inset: 0;
-
   pointer-events: none;
   overflow: hidden;
+  z-index: -1;
 
   background-image:
     linear-gradient(
@@ -18,12 +16,39 @@
       rgba(255, 255, 255, 0.04) 1px,
       transparent 1px
     );
-
   background-size: 48px 48px;
 
   mask-image: radial-gradient(
     ellipse at center,
-    black 20%,
-    transparent 75%
+    black 30%,
+    transparent 85%
   );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 30%,
+    transparent 85%
+  );
+
+  opacity: 0.5;
+
+ 
+  animation: floatRandom 24s ease-in-out infinite alternate;
+}
+
+@keyframes floatRandom {
+  0% {
+    background-position: 0px 0px;
+  }
+  25% {
+    background-position: -15px 20px;
+  }
+  50% {
+    background-position: 20px -15px;
+  }
+  75% {
+    background-position: -25px -10px;
+  }
+  100% {
+    background-position: 15px 25px;
+  }
 }

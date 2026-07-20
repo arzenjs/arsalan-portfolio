@@ -140,6 +140,8 @@ export const siteData = {
             title: "NexBook",
             category: "Full-Stack Web Application",
 
+            url: "nexbook-one.vercel.app",
+
             description:
                 "A modern full-stack notes application focused on productivity, secure authentication, and a clean writing experience.",
 
@@ -167,6 +169,8 @@ export const siteData = {
             title: "Rahnuma Guiding Lights Foundation",
             category: "NGO Website",
 
+            url: "rahnuma-ngo.vercel.app",
+
             description:
                 "A responsive informational website designed for a non-governmental organization with an emphasis on usability and accessibility.",
 
@@ -190,6 +194,8 @@ export const siteData = {
         {
             title: "SkyPulse",
             category: "Frontend Application",
+
+            url: "skypulse.vercel.app",
 
             description:
                 "A responsive weather application providing real-time weather information through a third-party API.",
@@ -215,6 +221,8 @@ export const siteData = {
             title: "iTask",
             category: "React Application",
 
+            url: "itask.vercel.app",
+
             description:
                 "A modern task management application built with React featuring a clean component-based architecture.",
 
@@ -239,6 +247,8 @@ export const siteData = {
             title: "QuoteCrafter",
             category: "Frontend Application",
 
+            url: "quotecrafter.vercel.app",
+
             description:
                 "A quote generator application delivering inspirational quotes through a minimal and responsive interface.",
 
@@ -261,6 +271,8 @@ export const siteData = {
         {
             title: "Tell Me a Joke",
             category: "Frontend Application",
+
+            url: "tellmeajoke.vercel.app",
 
             description:
                 "A lightweight web application that fetches and displays random jokes using a public API.",

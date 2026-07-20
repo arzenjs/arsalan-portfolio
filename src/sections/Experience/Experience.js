@@ -1,5 +1,30 @@
+"use client";
+
 import { siteData } from "@/constants/siteData";
+import { motion } from "motion/react";
 import "./Experience.css";
+
+const headerVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.12,
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  }),
+};
 
 export default function Experience() {
   const { experience } = siteData;
@@ -8,7 +33,13 @@ export default function Experience() {
     <section id="experience" className="experience" aria-labelledby="experience">
       <div className="exp-container">
         
-        <header className="exp-grid-cell exp-cell-header">
+        <motion.header 
+          className="exp-grid-cell exp-cell-header"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={headerVariants}
+        >
           <div className="exp-header-tag">
             <span className="exp-status-indicator" aria-hidden="true"></span>
             <span className="exp-eyebrow">{experience.eyebrow}</span>
@@ -16,10 +47,19 @@ export default function Experience() {
           <h2 id="exp-heading" className="exp-heading">
             {experience.heading}
           </h2>
-        </header>
+        </motion.header>
 
         {experience.items.map((item, index) => (
-          <article key={`${item.company}-${index}`} className="exp-grid-cell exp-cell-node">
+          <motion.article 
+            key={`${item.company}-${index}`} 
+            className="exp-grid-cell exp-cell-node"
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={cardVariants}
+            whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
+          >
             
             <div className="exp-node-meta">
               <span className="exp-node-index">CRON // 0{index + 1}</span>
@@ -42,7 +82,7 @@ export default function Experience() {
               </div>
             </div>
 
-          </article>
+          </motion.article>
         ))}
 
       </div>

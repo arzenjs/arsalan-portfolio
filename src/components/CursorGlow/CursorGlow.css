@@ -1,24 +1,29 @@
-/* Root */
-
 .cursor-glow {
   position: fixed;
-
-  width: 320px;
-  height: 320px;
-
-  border-radius: var(--radius-full);
-
-  background: var(--color-primary-soft);
-
-  filter: blur(80px);
-
-  opacity: 0.5;
-
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--color-primary-soft, rgba(220, 38, 38, 0.2));
+  filter: blur(50px);
+  opacity: 0.45;
   pointer-events: none;
-
-  transform: translate(-50%, -50%);
-
   z-index: -1;
 
-  /* TODO: Connect position to cursor movement. */
+ 
+  transform: translate(
+    calc(var(--cursor-x, -500px) - 50%),
+    calc(var(--cursor-y, -500px) - 50%)
+  );
+
+ 
+  transition: transform 0.08s ease-out, opacity 0.3s ease;
+}
+
+
+@media (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
 }

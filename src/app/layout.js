@@ -4,6 +4,7 @@ import { siteData } from "@/constants/siteData";
 import "@/styles/globals.css";
 
 import GridBackground from "@/components/GridBackground/GridBackground";
+import CursorGlow from "@/components/CursorGlow/CursorGlow";
 import Navbar from "@/components/Navbar/Navbar";
 
 const geist = Geist({
@@ -66,6 +67,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${geist.variable} antialiased`}>
         <GridBackground/>
+        <CursorGlow/>
         <Navbar/>
         {children}
       </body>
