@@ -3,10 +3,34 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    
+    if (latest > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+
+    
+    if (latest > previous && latest > 150) {
+      
+      if (!isOpen) setHidden(true);
+    } else {
+      
+      setHidden(false);
+    }
+  });
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -24,7 +48,15 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="navbar">
+    <motion.nav
+      className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+    >
       <div className="navbar__container">
         <Link href="/" className="navbar__logo" onClick={closeMenu}>
           Arsalan<span>.</span>
@@ -55,16 +87,21 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
+            <Link href="#experience" className="navbar__link" onClick={closeMenu}>
+              Experience
+            </Link>
+          </li>
+          <li>
             <Link 
               href="#contact" 
-              className="secondary-button nav-button" 
+              className="secondary-button nav-cta" 
               onClick={closeMenu}
             >
-              Let's Talk
+              Contact
             </Link>
           </li>
         </ul>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

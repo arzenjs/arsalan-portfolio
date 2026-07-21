@@ -1,19 +1,18 @@
 "use client";
 
 import { siteData } from "@/constants/siteData";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import "./Projects.css";
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
-      delay: i * 0.12,
+      delay: i * 0.1,
       duration: 0.5,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.16, 1, 0.3, 1],
     },
   }),
 };
@@ -32,15 +31,18 @@ export default function Projects() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="projects-tag-lockup">
-            <span className="projects-telemetry-dot" aria-hidden="true"></span>
-            <span className="projects-system-eyebrow">Projects</span>
+          <div>
+            <div className="projects-tag-lockup">
+              <span className="projects-telemetry-dot" aria-hidden="true"></span>
+              <span className="projects-system-eyebrow">Projects</span>
+            </div>
+            <h2 id="projects-heading" className="projects-system-heading">
+              Architecting Reliable Solutions.
+            </h2>
           </div>
-          <h2 id="projects-heading" className="projects-system-heading">
-            Architecting Reliable Solutions.
-          </h2>
+          
           <div className="projects-system-footer">
-            <span className="projects-system-status"></span>
+            <span className="projects-system-status">Featured Works</span>
           </div>
         </motion.div>
 
