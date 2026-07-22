@@ -7,58 +7,22 @@ import { siteData } from "@/constants/siteData";
 import SocialLinks from "@/components/SocialLinks/SocialLinks";
 import { ArrowUpRight, Sparkles, Code2, CheckCircle2 } from "lucide-react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { containerVariants, fadeUpVariant, visualVariant } from "@/lib/motion";
 
 import "./Hero.css";
-
-// Animation Variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const fadeUpVariant = {
-  hidden: { opacity: 0, y: 25, filter: "blur(6px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.75,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const visualVariant = {
-  hidden: { opacity: 0, scale: 0.94, y: 20 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.85,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
 
 export default function Hero() {
   const titles = [
     "Full-Stack Web Developer",
-    "Frontend Specialist",
+    "Frontend Developer",
     "UI/UX Architect",
+    "Backend Developer"
   ];
   const [titleIndex, setTitleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Smooth Interactive 3D Cursor Tilt
+  
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -81,7 +45,7 @@ export default function Hero() {
     y.set(0);
   };
 
-  // Typing Effect
+  
   const currentTitle = titles[titleIndex];
 
   useEffect(() => {
@@ -115,16 +79,13 @@ export default function Hero() {
         animate="visible"
         variants={containerVariants}
       >
-        {/* Left Column: Headline & Content */}
         <div className="hero-content">
 
           <motion.div className="hero-headline-group" variants={fadeUpVariant}>
             <span className="hero-greeting-sub">Hello, I am</span>
             
-            {/* Prominent Name Headline */}
             <h1 className="hero-name-display">{siteData.hero.name}</h1>
 
-            {/* Dynamic Role Line */}
             <div className="hero-role-display">
               <span className="role-highlight">
                 {currentTitle.slice(0, charIndex)}
@@ -167,7 +128,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Portrait Card / Visual Section */}
         <motion.div
           className="hero-visual-wrapper"
           variants={visualVariant}
@@ -176,10 +136,8 @@ export default function Hero() {
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         >
           <div className="hero-portrait-card">
-            {/* Glass Border Accent */}
             <div className="card-glass-glow" />
 
-            {/* Top Floating Glass Badge (Desktop Only) */}
             <motion.div
               className="floating-glass-pill pill-top"
               animate={{ y: [-4, 4, -4] }}
@@ -189,7 +147,6 @@ export default function Hero() {
               <span>Full-Stack Solutions</span>
             </motion.div>
 
-            {/* Bottom Floating Glass Badge (Desktop Only) */}
             <motion.div
               className="floating-glass-pill pill-bottom"
               animate={{ y: [4, -4, 4] }}
@@ -199,7 +156,6 @@ export default function Hero() {
               <span>Next.js & React Expert</span>
             </motion.div>
 
-            {/* Avatar Image Frame */}
             <div className="portrait-image-wrapper">
               <Image
                 src="/hero.png"

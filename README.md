@@ -160,12 +160,8 @@ This project is optimized for deployment on **Vercel**.
 
 ## Pending Work
 
-- Typewriter
-- Navbar Scroll Behavior & Animations
 - Active Navigation & URL Hash Synchronization
-- Hero Typewriter Animation
-- Framer Motion Integration
-- GSAP Animations & Micro-Interactions
+- Code Cleaning
 
 ---
 

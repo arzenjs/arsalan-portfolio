@@ -1,21 +1,9 @@
 "use client";
 
 import { siteData } from "@/constants/siteData";
-import { motion } from "framer-motion";
+import { motion, scale } from "framer-motion";
 import "./Projects.css";
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  }),
-};
+import { cardVariants } from "@/lib/motion";
 
 export default function Projects() {
   const { projects } = siteData;

@@ -3,28 +3,7 @@
 import { siteData } from "@/constants/siteData";
 import { motion } from "motion/react";
 import "./Experience.css";
-
-const headerVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.12,
-      duration: 0.5,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
-  }),
-};
+import { headerVariants, ExpCardVariants } from "@/lib/motion";
 
 export default function Experience() {
   const { experience } = siteData;
@@ -57,12 +36,11 @@ export default function Experience() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            variants={cardVariants}
+            variants={ExpCardVariants}
             whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
           >
             
             <div className="exp-node-meta">
-              <span className="exp-node-index">CRON // 0{index + 1}</span>
               <span className="exp-node-period">{item.period}</span>
             </div>
 

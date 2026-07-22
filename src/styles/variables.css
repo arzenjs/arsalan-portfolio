@@ -2,8 +2,9 @@
   /* Colors */
 
   --color-background: #090909;
-  --color-surface: #0d0d0dbf;
-  --color-surface-hover: #09090991;
+  --color-surface: rgba(17, 17, 17, 0.4);
+  --color-surface-light: rgba(255, 255, 255, 0.025);
+  --color-surface-hover: rgba(220, 38, 38, 0.05);
 
   --color-primary: #dc2626;
   --color-primary-hover: #ef4444;
@@ -32,15 +33,17 @@
   --radius-full: 9999px;
 
   /* Borders */
-
+  --color-border-theme: rgba(220, 38, 38, 0.4);
   --color-border: #262626;
-  --color-border-light: #737373;
+  --color-border-light: rgba(255, 255, 255, 0.06);;
 
   /* Shadows */
 
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --shadow-spread: 0 0px 15px rgba(0, 0, 0, 0.15);
+  --shadow-spread-theme: 0 10px 30px -10px rgba(220, 38, 38, 0.15);
+  --shadow-sm: 0 4px 12px rgba(220, 38, 38, 0.15);
+  --shadow-md: 0 10px 30px rgba(220, 38, 38, 0.25);
+  --shadow-lg: 0 20px 60px rgba(220, 38, 38, 0.35);
 
   /* Typography */
 

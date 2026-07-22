@@ -5,42 +5,7 @@ import { siteData } from "@/constants/siteData";
 import { AboutPrincipleIcon } from "@/components/icons/icons";
 import { motion } from "motion/react";
 import "./About.css";
-
-const containerVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
-const factCardVariants = {
-  hidden: { opacity: 0, scale: 0.92, y: 15 },
-  visible: (i) => ({
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      delay: 0.2 + i * 0.08,
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  }),
-};
+import { containerVariants, factCardVariants, itemVariants } from "@/lib/motion";
 
 export default function About() {
   const { about } = siteData;
@@ -54,7 +19,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        {/* Main Content Card (Left / Top) */}
+        
         <div className="about-main-card">
           <div className="about-card-glow" aria-hidden="true" />
           
@@ -73,7 +38,7 @@ export default function About() {
 
           <motion.div className="about-principles-wrapper" variants={itemVariants}>
             <ul className="about-principles-grid">
-              {about.principles.map((principle, index) => (
+              {about.principles.map((principle) => (
                 <motion.li
                   key={principle}
                   className="about-principle-tag"
@@ -90,7 +55,6 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Quick Facts Side Grid (Right / Bottom) */}
         <div className="about-facts-column">
           <div className="about-facts-header">
             <span className="about-facts-title">Metrics & Telemetry</span>

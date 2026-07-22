@@ -22,7 +22,7 @@
 .con-split-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem; /* Reduced overall gap between text block and actions block */
+  gap: 1.5rem;
   flex-grow: 1;
   align-items: center;
 }
@@ -30,7 +30,7 @@
 .con-text-block {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Slightly reduced inner text gap */
+  gap: 0.75rem;
   will-change: transform, opacity;
 }
 
@@ -49,11 +49,12 @@
 }
 
 .con-eyebrow-text {
-  font-family: monospace;
-  font-size: 0.85rem;
+  font-family: monospace; 
+  font-size: 1rem;
   color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
+  font-weight: 700;
 }
 
 .con-main-heading {
@@ -74,7 +75,7 @@
 .con-actions-block {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem; /* Reduced gap inside actions card list */
+  gap: 0.85rem;
   width: 100%;
   max-width: 480px;
   will-change: transform, opacity;
@@ -84,9 +85,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(17, 17, 17, 0.4);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg, 12px);
+  border-radius: var(--radius-lg);
   padding: 1rem 1.25rem;
   text-decoration: none;
   backdrop-filter: blur(8px);
@@ -94,8 +95,8 @@
 }
 
 .con-action-card:hover {
-  border-color: rgba(220, 38, 38, 0.4);
-  box-shadow: 0 8px 25px -8px rgba(220, 38, 38, 0.15);
+  border-color: var(--color-border-theme);
+  box-shadow: var(--shadow-sm);
 }
 
 .con-card-left {
@@ -139,10 +140,10 @@
   transform: translate(2px, -2px);
 }
 
-/* Social Buttons Grid: Equal Columns */
+
 .con-social-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Splits buttons into equal 2 columns / 1 or 2 equal rows */
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.65rem;
   margin-top: 0.25rem;
 }
@@ -151,9 +152,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(17, 17, 17, 0.4);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-md);
   padding: 0.6rem 0.85rem;
   color: var(--color-text-secondary);
   text-decoration: none;
@@ -176,7 +177,7 @@
 }
 
 .con-social-icon-btn:hover {
-  border-color: rgba(220, 38, 38, 0.4);
+  border-color: var(--color-border-theme);
   color: var(--color-text);
 }
 
@@ -185,7 +186,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.825rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--color-border);
   padding-top: 1.25rem;
 }
 
@@ -215,7 +216,7 @@
 @media (min-width: 992px) {
   .con-split-layout {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem; /* Reduced column spacing on wider screens */
+    gap: 2rem;
   }
 }
 

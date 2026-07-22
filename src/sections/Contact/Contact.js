@@ -12,24 +12,7 @@ import {
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/icons/icons";
 import "./Contact.css";
-
-const leftBlockVariants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
-
-const rightBlockVariants = {
-  hidden: { opacity: 0, x: 30 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: "easeOut", delay: 0.15 }
-  }
-};
+import { leftBlockVariants, rightBlockVariants } from "@/lib/motion";
 
 export default function Contact() {
   const { contact, footer } = siteData;

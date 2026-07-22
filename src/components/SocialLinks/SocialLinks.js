@@ -14,7 +14,7 @@ const iconMap = {
 export default function SocialLinks() {
   return (
     <nav className="social-links" aria-label="Social media links">
-      <ul className="social-links__list">
+      <ul className="social-links-list">
         {siteData.socialLinks.map((social) => {
           const IconComponent = iconMap[social.name];
           if (!IconComponent) return null;
@@ -23,9 +23,9 @@ export default function SocialLinks() {
             <li key={social.name}>
               <a
                 href={social.url}
-                className="social-links__item"
+                className="social-links-item"
                 aria-label={social.name}
-                target={isEmail ? undefined : "_blank"}
+                target={isEmail ? undefined : "-blank"}
                 rel={isEmail ? undefined : "noopener noreferrer"}
               >
                 <IconComponent size={20} />

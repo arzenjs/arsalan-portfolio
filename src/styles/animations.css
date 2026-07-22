@@ -26,82 +26,22 @@
   }
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
+@keyframes floatRandom {
+  0% {
+    background-position: 0px 0px;
   }
-
-  to {
-    opacity: 1;
+  25% {
+    background-position: -15px 20px;
   }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(1rem);
+  50% {
+    background-position: 20px -15px;
   }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  75% {
+    background-position: -25px -10px;
   }
-}
-
-@keyframes fade-down {
-  from {
-    opacity: 0;
-    transform: translateY(-1rem);
+  100% {
+    background-position: 15px 25px;
   }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Animation Utilities */
-
-.animate-fade-in {
-  animation: fade-in 0.4s ease both;
-}
-
-.animate-fade-up {
-  animation: fade-up 0.5s ease both;
-}
-
-.animate-fade-down {
-  animation: fade-down 0.5s ease both;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.35s ease both;
-}
-
-.animate-rotate {
-  animation: rotate 8s linear infinite;
 }
 
 /* Motion Preferences */

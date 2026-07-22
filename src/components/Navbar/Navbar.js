@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}
+      className={`navbar ${isScrolled ? "navbar-scrolled" : ""}`}
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -57,37 +57,37 @@ export default function Navbar() {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
-      <div className="navbar__container">
-        <Link href="/" className="navbar__logo" onClick={closeMenu}>
+      <div className="navbar-container">
+        <Link href="/" className="navbar-logo" onClick={closeMenu}>
           Arsalan<span>.</span>
         </Link>
 
         <button 
-          className="navbar__toggle" 
+          className="navbar-toggle" 
           onClick={toggleMenu}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        <ul className={`navbar__menu ${isOpen ? "open" : ""}`}>
+        <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
           <li>
-            <Link href="#about" className="navbar__link" onClick={closeMenu}>
+            <Link href="#about" className="navbar-link" onClick={closeMenu}>
               About
             </Link>
           </li>
           <li>
-            <Link href="#skills" className="navbar__link" onClick={closeMenu}>
+            <Link href="#skills" className="navbar-link" onClick={closeMenu}>
               Skills
             </Link>
           </li>
           <li>
-            <Link href="#projects" className="navbar__link" onClick={closeMenu}>
+            <Link href="#projects" className="navbar-link" onClick={closeMenu}>
               Projects
             </Link>
           </li>
           <li>
-            <Link href="#experience" className="navbar__link" onClick={closeMenu}>
+            <Link href="#experience" className="navbar-link" onClick={closeMenu}>
               Experience
             </Link>
           </li>

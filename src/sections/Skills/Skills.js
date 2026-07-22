@@ -9,6 +9,7 @@ import {
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import "./Skills.css";
+import { SkillContainerVariants, SkillItemVariants, itemVariants } from "@/lib/motion";
 
 const ICON_MAP = {
   "HTML": <SiHtml5 className="skills-icon skills-icon-html" />,
@@ -40,30 +41,6 @@ const ITEM_CLASS_MAP = {
   "REST APIs": "skills-item-api",
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.85, y: 15 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 350, damping: 22 }
-  },
-};
-
 export default function Skills() {
   const { skills } = siteData;
   const categories = skills?.categories ?? [];
@@ -83,10 +60,10 @@ export default function Skills() {
           transition={{ duration: 0.5 }}
         >
           <div className="skills-text-group">
-            <p className="skills-eyebrow">
+            <motion.div className="skill-badge-row" variants={itemVariants}>
               <span className="skill-status-dot" aria-hidden="true" />
-              {skills.eyebrow}
-            </p>
+              <span className="skill-eyebrow-text">{skills.eyebrow}</span>
+            </motion.div>
             <h2 id="skills-heading" className="skills-heading">
               {skills.heading}
             </h2>
@@ -119,7 +96,7 @@ export default function Skills() {
             <motion.div
               key={activeTab}
               className="skills-list"
-              variants={containerVariants}
+              variants={SkillContainerVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -131,7 +108,7 @@ export default function Skills() {
                     key={item}
                     className={`skills-item ${specializedClass}`}
                     tabIndex="0"
-                    variants={itemVariants}
+                    variants={SkillItemVariants}
                     whileHover={{ y: -5 }}
                     whileTap={{ scale: 0.96 }}
                   >

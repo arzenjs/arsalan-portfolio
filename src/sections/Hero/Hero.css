@@ -12,7 +12,6 @@
   background: transparent;
 }
 
-/* Flexbox Layout with space-between for Desktop */
 .hero-container {
   position: relative;
   z-index: 2;
@@ -24,7 +23,6 @@
   gap: clamp(2rem, 4vw, 4.5rem);
 }
 
-/* --- LEFT COLUMN: CONTENT --- */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -33,35 +31,6 @@
   max-width: 620px;
 }
 
-/* Status Badge */
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-full, 9999px);
-  width: fit-content;
-  backdrop-filter: blur(12px);
-}
-
-.badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #10b981;
-  box-shadow: 0 0 10px #10b981;
-}
-
-.badge-text {
-  font-size: 0.825rem;
-  font-weight: 500;
-  color: var(--color-text-secondary, #a1a1aa);
-  letter-spacing: 0.02em;
-}
-
-/* Headlines */
 .hero-headline-group {
   display: flex;
   flex-direction: column;
@@ -71,20 +40,19 @@
 .hero-greeting-sub {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-primary, #dc2626);
+  color: var(--color-primary);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .hero-name-display {
-  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.75rem, 5.5vw, 5.25rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.02;
-  color: var(--color-text, #ffffff);
+  color: var(--color-text);
   margin: 0;
-  background: linear-gradient(180deg, #ffffff 50%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(180deg, var(--color-text) 50%, rgba(255, 255, 255, 0.7) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -94,31 +62,30 @@
   align-items: center;
   font-size: clamp(1.25rem, 2.3vw, 2rem);
   font-weight: 700;
-  color: var(--color-text-secondary, #d4d4d8);
+  color: var(--color-text-secondary);
   min-height: 2.75rem;
   margin-top: 0.2rem;
   letter-spacing: -0.02em;
 }
 
 .role-highlight {
-  color: var(--color-primary, #dc2626);
+  color: var(--color-primary);
 }
 
 .typing-cursor {
-  color: var(--color-primary, #dc2626);
+  color: var(--color-primary);
   margin-left: 2px;
   font-weight: 400;
 }
 
 .hero-description {
-  color: var(--color-text-secondary, #a1a1aa);
+  color: var(--color-text-secondary);
   font-size: clamp(0.95rem, 1.1vw, 1.125rem);
   line-height: 1.65;
   max-width: 550px;
   margin: 0;
 }
 
-/* Actions & Buttons */
 .hero-actions {
   display: flex;
   align-items: center;
@@ -131,20 +98,23 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background: var(--color-primary, #dc2626);
-  color: #ffffff;
+  background: var(--color-primary);
+  color: var(--color-text);
   padding: 0.85rem 1.75rem;
   border-radius: var(--radius-md, 10px);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.25);
+  box-shadow: var(--shadow-sm);
+  height: 2.75rem;
+  width: 9.8rem;
+  justify-content: center;
 }
 
 .hero-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .cta-icon {
@@ -155,13 +125,12 @@
   transform: translate(2px, -2px);
 }
 
-/* Value Props Strip */
 .hero-value-props {
   display: flex;
   align-items: center;
   gap: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--color-border-light);
   margin-top: 0.4rem;
 }
 
@@ -171,20 +140,19 @@
   gap: 0.45rem;
   font-size: 0.825rem;
   font-weight: 500;
-  color: var(--color-text-muted, #71717a);
+  color: var(--color-text-muted);
 }
 
 .prop-icon {
-  color: var(--color-primary, #dc2626);
+  color: var(--color-primary);
 }
 
 .prop-divider {
   width: 1px;
   height: 14px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-border-light);
 }
 
-/* --- VISUAL PORTRAIT (RIGHT) --- */
 .hero-visual-wrapper {
   perspective: 1000px;
   width: 100%;
@@ -209,7 +177,7 @@
 }
 
 .hero-portrait-card:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-border-light)
 }
 
 .card-glass-glow {
@@ -227,22 +195,21 @@
   );
 }
 
-/* Floating Glass Badges (Desktop Only) */
 .floating-glass-pill {
   position: absolute;
   z-index: 5;
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background: rgba(18, 18, 18, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   padding: 0.5rem 1rem;
   border-radius: var(--radius-full, 9999px);
   font-size: 0.8rem;
   font-weight: 500;
-  color: #ffffff;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  color: var(--color-text);
+  backdrop-filter: blur(22px);
+  box-shadow: var(--shadow-spread);
 }
 
 .pill-top {
@@ -256,7 +223,7 @@
 }
 
 .pill-star {
-  color: var(--color-primary, #dc2626);
+  color: var(--color-primary);
 }
 
 .pill-pulse-dot {
@@ -267,7 +234,6 @@
   box-shadow: 0 0 10px #38bdf8;
 }
 
-/* Avatar Frame */
 .portrait-image-wrapper {
   position: relative;
   z-index: 1;
@@ -286,7 +252,6 @@
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 78%, rgba(0, 0, 0, 0) 100%);
 }
 
-/* --- MOBILE LAYOUT (Clean Single View, No Overflow) --- */
 @media (max-width: 991px) {
   .hero {
     min-height: 100dvh;
@@ -304,12 +269,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
     max-height: 100%;
     gap: 0.75rem;
   }
 
-  /* 1. Large Visual Portrait First */
+ 
   .hero-visual-wrapper {
     order: -1;
     width: 100%;
@@ -333,7 +297,7 @@
     display: block;
   }
 
-  /* 2. Compact Content Section */
+ 
   .hero-content {
     align-items: center;
     text-align: center;
@@ -369,7 +333,7 @@
     line-height: 1.4;
   }
 
-  /* 3. Action Buttons & Props Strip */
+ 
   .hero-actions {
     justify-content: center;
     width: 100%;
@@ -382,20 +346,18 @@
     font-size: 0.875rem;
   }
 
-  /* Hide value props strip on mobile to eliminate clutter */
+ 
   .hero-value-props {
     display: none;
   }
 }
 
-/* Hide floating glass pills on mobile viewports */
 @media (max-width: 768px) {
   .floating-glass-pill {
     display: none !important;
   }
 }
 
-/* Extra Small Phones Adjustment */
 @media (max-width: 480px) {
   .hero {
     padding-top: 4rem;
