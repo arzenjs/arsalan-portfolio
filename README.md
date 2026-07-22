@@ -157,12 +157,6 @@ npm start
 
 This project is optimized for deployment on **Vercel**.
 
-
-## Pending Work
-
-- Active Navigation & URL Hash Synchronization
-- Code Cleaning
-
 ---
 
 ## License
