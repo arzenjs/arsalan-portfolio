@@ -31,6 +31,11 @@ export const metadata = {
     },
   ],
 
+  icons: {
+    icon: `${siteData.site.favicon}`,
+    shortcut: `${siteData.site.favicon}`
+  },
+
   creator: siteData.site.creator,
 
   alternates: {
@@ -38,7 +43,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: `${siteData.site.name} | ${siteData.site.title}`,
+    title: `${siteData.site.name}`,
     description: siteData.site.description,
     url: siteData.site.url,
     siteName: siteData.site.name,

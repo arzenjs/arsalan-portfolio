@@ -5,7 +5,7 @@ export const siteData = {
         description:
             "Professional Full-Stack Web Developer building modern, accessible, scalable web applications.",
 
-        url: "http://localhost:3000/",
+        url: "https://arsalan-portfolio-beige.vercel.app/",
 
         locale: "en_US",
 
@@ -23,6 +23,7 @@ export const siteData = {
 
         creator: "Arsalan",
 
+        favicon: "/favicon.ico",
         ogImage: "/og/cover.jpg",
     },
 
@@ -64,15 +65,15 @@ export const siteData = {
     socialLinks: [
         {
             name: "GitHub",
-            url: "http://localhost:3000/"
+            url: "https://github.com/arzenjs/"
         },
         {
             name: "LinkedIn",
-            url: "http://localhost:3000/"
+            url: "https://arsalan-portfolio-beige.vercel.app/"
         },
         {
             name: "X",
-            url: "http://localhost:3000/"
+            url: "https://arsalan-portfolio-beige.vercel.app/"
         },
         {
             name: "Email",
@@ -160,9 +161,6 @@ export const siteData = {
                 "Responsive interface",
                 "Scalable component architecture",
             ],
-
-            github: "http://localhost:3000/",
-            live: "https://nexbook-one.vercel.app/"
         },
 
         {
@@ -186,9 +184,6 @@ export const siteData = {
                 "Accessibility-focused",
                 "Multi-section landing page",
             ],
-
-            github: "http://localhost:3000/",
-            live: "http://localhost:3000/"
         },
 
         {
@@ -212,9 +207,6 @@ export const siteData = {
                 "Location search",
                 "Clean user interface",
             ],
-
-            github: "http://localhost:3000/",
-            live: "http://localhost:3000/",
         },
 
         {
@@ -238,59 +230,42 @@ export const siteData = {
                 "Responsive layout",
                 "State management",
             ],
-
-            github: "http://localhost:3000/",
-            live: "http://localhost:3000/",
         },
 
         {
-            title: "QuoteCrafter",
+            title: "Tic Tac Toe",
             category: "Frontend Application",
-
-            url: "quotecrafter.vercel.app",
-
+            url: "tictactoe.vercel.app",
             description:
-                "A quote generator application delivering inspirational quotes through a minimal and responsive interface.",
-
+                "An interactive, web-based Tic Tac Toe game featuring turn tracking, win detection, and a modern responsive interface.",
             technologies: [
                 "HTML",
                 "CSS",
                 "JavaScript",
             ],
-
             highlights: [
-                "Dynamic content",
-                "Responsive UI",
-                "Minimal design",
+                "Game state management",
+                "Win & draw detection",
+                "Responsive design",
             ],
-
-            github: "http://localhost:3000/",
-            live: "http://localhost:3000/"
         },
-
+        
         {
-            title: "Tell Me a Joke",
+            title: "Calculator",
             category: "Frontend Application",
-
-            url: "tellmeajoke.vercel.app",
-
+            url: "calculator.vercel.app",
             description:
-                "A lightweight web application that fetches and displays random jokes using a public API.",
-
+                "A sleek web calculator capable of executing standard arithmetic operations with dynamic display updates and keyboard support.",
             technologies: [
                 "HTML",
                 "CSS",
                 "JavaScript",
             ],
-
             highlights: [
-                "REST API integration",
-                "Responsive interface",
-                "Fast loading",
+                "Keyboard event listener",
+                "Grid UI layout",
+                "Real-time calculations",
             ],
-
-            github: "http://localhost:3000/",
-            live: "http://localhost:3000/"
         },
     ],
 
