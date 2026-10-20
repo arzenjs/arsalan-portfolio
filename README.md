@@ -1,107 +1,111 @@
 # Arsalan Portfolio
 
-A modern, premium, and high-performance portfolio website built to showcase my work, technical expertise, and professional experience as a Full-Stack Web Developer.
+A modern, responsive portfolio website showcasing my projects, technical skills, and professional work as a Full-Stack Web Developer.
 
-Designed with a strong focus on clean architecture, scalability, accessibility, responsiveness, and performance.
+Built with a focus on clean architecture, maintainability, accessibility, performance, and a polished user experience.
+
+**[🌐 View Live Portfolio](https://arsalan-portfolio-beige.vercel.app/)**
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Framework
-
 - Next.js (App Router)
 
 ### Language
-
 - JavaScript (ES6+)
 
 ### Styling
-
 - Tailwind CSS
 - Modular CSS
 
 ### Animation
-
 - GSAP
 - Framer Motion
 
 ### Icons
-
 - Lucide React
-- React Icons (react-icons/si, react-icons/tb)
+- React Icons
 
 ### Deployment
-
 - Vercel
 
 ---
 
-## Features
+## ✨ Features
 
-- Modern premium UI
-- Fully responsive
-- Clean and modular architecture
-- Accessible components
-- SEO optimized
-- High-performance rendering
-- Smooth animations
-- Reusable design system
-- Interactive project showcase
+- Modern portfolio design
+- Responsive layouts for different screen sizes
+- Modular and reusable UI components
+- Project showcase
 - Contact form
 - Social media integration
+- Animated interactions and transitions
+- SEO-oriented page configuration
+- Performance-conscious implementation
+- Consistent visual design system
 
 ---
 
-## Design Principles
+## 🎨 Design Principles
 
-- Minimal
-- Professional
-- Premium
-- Developer-focused
-- Accessibility-first
-- Performance-first
-- Mobile-first
-- Easy to maintain
-- Scalable architecture
+The portfolio is developed around the following principles:
+
+- **Minimalism:** Clear layouts and focused content
+- **Professionalism:** A polished presentation of projects and skills
+- **Maintainability:** Organized components and reusable styles
+- **Accessibility:** Usable interfaces with accessible interaction patterns
+- **Performance:** Efficient rendering and optimized assets
+- **Responsiveness:** Layouts adapted to mobile, tablet, and desktop
+- **Scalability:** An architecture that supports future improvements
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
-### Clone the repository
+### Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- npm
+
+### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/arzenjs/arsalan-portfolio/
 ```
 
-### Install dependencies
+### 2. Navigate to the project directory
+
+```bash
+cd arsalan-portfolio
+```
+
+### 3. Install dependencies
 
 ```bash
 npm install
 ```
 
-### Start the development server
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-Open your browser:
-
-```
-http://localhost:3000
-```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Build for Production
+## 🏗️ Production Build
+
+Create an optimized production build:
 
 ```bash
 npm run build
 ```
 
-Run the production server:
+Run the production server locally:
 
 ```bash
 npm start
@@ -109,58 +113,54 @@ npm start
 
 ---
 
-## Project Goals
+## 📈 Project Goals
 
-- Showcase professional projects
-- Establish credibility
-- Impress recruiters
-- Attract freelance clients
-- Demonstrate frontend architecture
-- Demonstrate full-stack development skills
-
----
-
-## Performance Goals
-
-- Fast page loads
-- Optimized assets
-- Excellent Core Web Vitals
-- Responsive on all devices
-- Minimal JavaScript overhead
+- Showcase selected development projects
+- Present technical skills and development experience
+- Establish a professional online presence
+- Connect with potential clients and collaborators
+- Demonstrate practical web development capabilities
+- Support freelance opportunities and professional growth
 
 ---
 
-## Accessibility
+## 🔍 SEO, Accessibility & Performance
 
-- Semantic HTML
-- Keyboard navigation
-- Visible focus states
-- Proper color contrast
-- Responsive typography
-- Reduced motion support
+The portfolio aims to follow good practices in:
 
----
+- Page metadata and search engine optimization
+- Open Graph and social sharing metadata
+- Semantic HTML and keyboard accessibility
+- Responsive typography and layouts
+- Image and asset optimization
+- Efficient rendering and loading
+- Reduced-motion preferences where supported
 
-## SEO
-
-- Metadata
-- Open Graph
-- Twitter Cards
-- Canonical URLs
-- Sitemap
-- Robots.txt
-- Structured Data
+The implementation of individual features depends on the current project configuration.
 
 ---
 
-## Deployment
+## ☁️ Deployment
 
-This project is optimized for deployment on **Vercel**.
+The portfolio is deployed on **Vercel**.
+
+**Live Website:** https://arsalan-portfolio-beige.vercel.app/
 
 ---
 
-## License
+## 👨‍💻 Author
 
-This project is intended for personal portfolio use.
+**Arsalan (ARZEN)**  
+Full-Stack Web Developer
+
+- **GitHub:** [@arzenjs](https://github.com/arzenjs)
+- **LinkedIn:** [Arsalan](https://www.linkedin.com/in/arzenjs/)
+- **Portfolio:** [arsalan-portfolio-beige.vercel.app](https://arsalan-portfolio-beige.vercel.app/)
+
+---
+
+## 📄 License
+
+This project is intended for personal portfolio use. No license is granted for redistribution, modification, or reuse unless explicitly authorized by the author or permitted by applicable law.
 
 © Arsalan. All rights reserved.
