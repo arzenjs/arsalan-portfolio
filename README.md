@@ -1,166 +1,104 @@
-# Arsalan Portfolio
+# Arsalan — Portfolio (ARZEN)
 
-A modern, premium, and high-performance portfolio website built to showcase my work, technical expertise, and professional experience as a Full-Stack Web Developer.
+A personal portfolio for **Mohammad Arsalan Sheikh (Arsalan / ARZEN)** — full-stack
+web developer and freelancer based in Patna, Bihar, India.
 
-Designed with a strong focus on clean architecture, scalability, accessibility, responsiveness, and performance.
-
----
-
-## Tech Stack
-
-### Framework
-
-- Next.js (App Router)
-
-### Language
-
-- JavaScript (ES6+)
-
-### Styling
-
-- Tailwind CSS
-- Modular CSS
-
-### Animation
-
-- GSAP
-- Framer Motion
-
-### Icons
-
-- Lucide React
-- React Icons (react-icons/si, react-icons/tb)
-
-### Deployment
-
-- Vercel
+Built with **Next.js 16 (App Router), React 19, Tailwind CSS v4, Framer Motion and
+100% plain JavaScript** — there is deliberately no TypeScript anywhere in this
+project. The only `.ts` files are tool-generated (e.g. `next-env.d.ts`).
 
 ---
 
-## Features
-
-- Modern premium UI
-- Fully responsive
-- Clean and modular architecture
-- Accessible components
-- SEO optimized
-- High-performance rendering
-- Smooth animations
-- Reusable design system
-- Interactive project showcase
-- Contact form
-- Social media integration
-
----
-
-## Design Principles
-
-- Minimal
-- Professional
-- Premium
-- Developer-focused
-- Accessibility-first
-- Performance-first
-- Mobile-first
-- Easy to maintain
-- Scalable architecture
-
----
-
-## Getting Started
-
-### Clone the repository
-
-```bash
-git clone <repository-url>
-```
-
-### Install dependencies
+## 1. Run it
 
 ```bash
 npm install
+npm run dev        # http://localhost:3000
+npm run lint       # ESLint
+npm run build      # production build
+npm start          # serve the production build
 ```
 
-### Start the development server
+For the contact form to persist messages locally:
 
 ```bash
-npm run dev
+# .env needs DATABASE_URL (Postgres). Then create the table once:
+npx drizzle-kit push
 ```
 
-Open your browser:
+## 2. Where to change things (the file tour)
 
-```
-http://localhost:3000
-```
+| You want to change… | Edit this file |
+| --- | --- |
+| Name, headline, bio, email, location | `src/lib/site.js` |
+| Social profile URLs | `src/lib/site.js` (`socials` array) |
+| Skills, services, process steps | `src/lib/site.js` |
+| Projects (add / remove / reorder) | `src/lib/projects.js` |
+| Replace the temporary portrait | overwrite `public/images/portrait.png` |
+| Replace Open Graph share image | overwrite `public/images/og.jpg` |
+| Colors, fonts, spacing, animations | `src/app/globals.css` (`@theme` tokens) |
+| SEO title / description / OG | `src/app/layout.jsx` (`metadata`) |
+| Case-study page design | `src/app/work/[slug]/page.jsx` |
+| Contact form behaviour | `src/components/Contact.jsx` + `src/app/api/contact/route.js` |
 
----
+### Replacing the portrait
 
-## Build for Production
+`public/images/portrait.png` is a **temporary AI-generated placeholder** and is
+labelled as such in the UI. To use a real photograph: export a ~880×1100 px (4:5)
+image as `portrait.png`, overwrite that one file, and update the alt text in
+`src/components/Hero.jsx` (the caption below the photo should be removed once
+it's a real photo).
 
-```bash
-npm run build
-```
+## 3. Environment variables
 
-Run the production server:
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `DATABASE_URL` | for the contact form | Postgres connection string. Without it the form degrades to a clear error and tells visitors to email directly. |
+| `NEXT_PUBLIC_SITE_URL` | production | Canonical origin used in metadata, Open Graph and `sitemap.xml`. |
 
-```bash
-npm start
-```
+No other secrets exist in this project. Never commit `.env*`.
 
----
+## 4. Deployment (Vercel, recommended)
 
-## Project Goals
+1. Push the repo to GitHub and import it in Vercel.
+2. Set `NEXT_PUBLIC_SITE_URL` to the deployed origin.
+3. Add a Postgres database (Vercel Postgres/Neon) and set `DATABASE_URL`, then
+   run `npx drizzle-kit push` with that URL once (from your machine).
+4. Update `src/lib/site.js` if the URL or any profile link changes.
 
-- Showcase professional projects
-- Establish credibility
-- Impress recruiters
-- Attract freelance clients
-- Demonstrate frontend architecture
-- Demonstrate full-stack development skills
+Rollback on Vercel: Deployments → previous deployment → *Redeploy*.
 
----
+## 5. Design & content decisions (summary of the research phase)
 
-## Performance Goals
+Eight reference sites were inspected before this design was chosen. Verifiable
+highlights: sarthak-sharma and dakshgajjar.com use numbered editorial sections
+with monospace micro-labels and huge display type; razorpay.com/ai-builders
+shows the power of direct, no-nonsense copy; ingrassiadaniel.it proves a lean
+text-first contact path converts; minemal.dental uses scattered-word collage
+(too decorative for this audience); finethought.com.au renders almost all
+content client-side (invisible to crawlers — avoided); duocase.lol is parody
+(personality, not a model); pragenhatlen.com wins trust through depth and
+precision (adopted for case-study honesty).
 
-- Fast page loads
-- Optimized assets
-- Excellent Core Web Vitals
-- Responsive on all devices
-- Minimal JavaScript overhead
+**Chosen direction: “Editorial Monochrome”** — near-black canvas, white/grayscale
+only, oversized Space Grotesk display type, JetBrains Mono micro-labels,
+numbered sections, hairline rules, film grain, and motion limited to
+transform/opacity with full `prefers-reduced-motion` support.
 
----
+## 6. Honesty rules baked into the content
 
-## Accessibility
+- All four projects (NexBook, IronVault Fitness, CedarCare, Ember & Spice) are
+  labelled as personal projects / demos — none are presented as paid client work.
+- Case studies list verified features *and* unresolved caveats.
+- No client counts, revenue figures, years of experience, testimonials or
+  skill bars anywhere on the site.
+- IronVault: payments are Razorpay **test mode**; CedarCare: fictional clinic.
 
-- Semantic HTML
-- Keyboard navigation
-- Visible focus states
-- Proper color contrast
-- Responsive typography
-- Reduced motion support
+## 7. Known limitations
 
----
-
-## SEO
-
-- Metadata
-- Open Graph
-- Twitter Cards
-- Canonical URLs
-- Sitemap
-- Robots.txt
-- Structured Data
-
----
-
-## Deployment
-
-This project is optimized for deployment on **Vercel**.
-
----
-
-## License
-
-This project is intended for personal portfolio use.
-
-© Arsalan. All rights reserved.
+- Portrait and the four project covers are AI-generated placeholders/artwork.
+- Contact messages are stored in Postgres; there is no admin inbox UI yet —
+  read them with `psql $DATABASE_URL -c 'SELECT * FROM contact_messages ORDER BY created_at DESC;'`
+  or ask for email delivery (e.g. Resend) as a follow-up feature.
+- The in-memory contact rate limiter is per-instance only.
+- `NexBook`'s repository is private, so the site links only to its live demo.
