@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 
 export default function Services() {
   return (
-    <section id="services" className="shell pt-24 md:pt-32" aria-labelledby="services-heading">
+    <section id="services" className="shell pt-12 md:pt-16" aria-labelledby="services-heading">
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-6 pb-10">
           <div>
@@ -22,7 +22,7 @@ export default function Services() {
 
       <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-3">
         {services.map((service, i) => (
-          <Reveal key={service.title} delay={i * 0.08} className="bg-bg">
+          <Reveal key={service.title} delay={i * 0.08} className="bg-bg transition-colors duration-300 hover:bg-panel">
             <article className="flex h-full flex-col p-7 md:p-8">
               <p className="font-mono text-xs tracking-[0.2em] text-faint">{service.index}</p>
               <h3 className="mt-4 font-display text-xl font-medium tracking-tight text-ink sm:text-2xl">

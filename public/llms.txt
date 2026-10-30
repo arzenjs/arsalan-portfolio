@@ -1,0 +1,44 @@
+# Arsalan — Full-Stack Web Developer & Freelancer (ARZEN)
+
+> Mohammad Arsalan Sheikh, known professionally as Arsalan (online handle ARZEN),
+> is a freelance full-stack web developer based in Patna, Bihar, India. He builds
+> business websites, full-stack web applications and custom web solutions for
+> clients in India and internationally, using JavaScript end to end: Next.js
+> (App Router), React, Node.js, MongoDB/Mongoose, Auth.js, Tailwind CSS and
+> Framer Motion. He works remotely and is open to freelance projects and
+> full-time roles. He is currently learning TypeScript.
+
+## Services
+- Business websites: fast, SEO-friendly marketing and brochure sites.
+- Full-stack web applications: authentication, dashboards, CRUD, bookings,
+  payment-flow integrations (Next.js + MongoDB + Auth.js).
+- Custom web solutions: redesigns, booking/contact flows, scoped product builds.
+
+## Projects
+- NexBook — full-stack web application (secure multi-user notebook; Next.js,
+  MongoDB, Mongoose, Auth.js, Tiptap, TanStack Query). Personal project.
+  Demo: https://nexbook-one.vercel.app/ (source repository is private).
+- IronVault Fitness — industry solution demonstration (gym website with
+  membership flow; Next.js, MongoDB, Auth.js; payment and email integrations
+  are pending and not production-ready).
+  Source: https://github.com/arzenjs/ironvault-fitness
+- CedarCare — industry solution demonstration (clinic website with
+  appointment booking and staff dashboard; fictional clinic).
+  Source: https://github.com/arzenjs/cedarcare
+- Ember & Spice — industry solution demonstration (restaurant marketing site;
+  Next.js 14, Tailwind CSS, Framer Motion; fictional restaurant).
+  Demo: https://ember-spice-seven.vercel.app/ · Source: https://github.com/arzenjs/ember-spice
+
+Note: all four are independent builds and demonstrations, not paid client
+engagements. Experiments live at https://github.com/arzenjs/arzen-dev-lab.
+
+## Contact & profiles
+- Email: mohammadarsalan02013@gmail.com
+- GitHub: https://github.com/arzenjs
+- LinkedIn: https://www.linkedin.com/in/arzenjs/
+- X: https://x.com/arzenjs
+- Instagram: https://www.instagram.com/arzenjs/
+- Threads: https://www.threads.com/@arzenjs
+- Facebook: https://www.facebook.com/profile.php?id=61595323422328
+- Fiverr: https://www.fiverr.com/arzenjs
+- Upwork: https://www.upwork.com/freelancers/~018323d6dd0a649d86

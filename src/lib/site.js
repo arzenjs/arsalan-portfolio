@@ -1,8 +1,3 @@
-// ---------------------------------------------------------------------------
-// Central site configuration — edit text, links and section content here.
-// Components read from this file so repeated content has a single home.
-// ---------------------------------------------------------------------------
-
 export const site = {
   // Identity
   name: "Arsalan",
@@ -13,41 +8,39 @@ export const site = {
   location: "Patna, Bihar, India",
   email: "mohammadarsalan02013@gmail.com",
 
-  // Used for canonical URLs, Open Graph and the sitemap. Set
-  // NEXT_PUBLIC_SITE_URL in production; the fallback is a placeholder.
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://arzenjs.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://arsalan-portfolio-beige.vercel.app",
 
-  // Temporary AI-generated placeholder portrait. Replace this ONE file
-  // (public/images/portrait.png) with a real photograph later — every
-  // reference points here, and the current file is clearly labelled as
-  // a placeholder wherever it is displayed.
   portrait: "/images/portrait.png",
   ogImage: "/images/og.jpg",
-
-  headline: "Websites that win clients. Apps that survive production.",
+  headline: "Building high-craft business websites and full-stack web applications.",
   intro:
-    "I design and build business websites and full-stack web applications — " +
-    "from the first pixel to a deployed, working product. Based in Patna, " +
-    "working with clients in India and abroad.",
+    "I'm Arsalan, a freelance full-stack developer based in Patna, India. I take " +
+    "projects from first sketch to deployed product - Next.js and React up front, " +
+    "Node.js, MongoDB and Auth.js underneath - so the website that wins the client " +
+    "is the same one that survives real users.",
+
+  facts: [
+    { label: "Based in", value: "Patna, India - working worldwide" },
+    { label: "Focus", value: "Business websites · Web apps · Custom builds" },
+    { label: "Status", value: "Open to freelance & full-time work", live: true },
+  ],
 
   about: [
-    "I'm Mohammad Arsalan Sheikh — I go by Arsalan, and ARZEN is my online handle. I'm a full-stack web developer from Patna, India, working with clients who need a website or web application built properly: fast, accessible, and easy to maintain after handover.",
-    "My day-to-day stack is JavaScript end to end — Next.js and React on the front, Node.js with MongoDB/Mongoose and Auth.js on the back. I care about the unglamorous parts as much as the visuals: semantic HTML, honest content, clean server boundaries, and code the next developer can actually read.",
-    "The projects below are my own builds and public demonstrations — designed, developed, and deployed by me. Each one is documented with what it does, how it's built, and what is still unfinished. I'm currently learning TypeScript and deepening my API design work.",
+    "I'm Mohammad Arsalan Sheikh - I go by Arsalan, and ARZEN is my online handle. I'm a full-stack web developer from Patna, India, working with clients who need a website or web application built properly: fast, accessible, and easy to maintain after handover.",
+    "My day-to-day stack is JavaScript end to end - Next.js and React on the front, Node.js with MongoDB/Mongoose and Auth.js on the back. I care about the unglamorous parts as much as the visuals: semantic HTML, honest content, clean server boundaries, and code the next developer can actually read.",
+    "The projects on this site are my own builds and industry-solution demonstrations - designed, developed, and deployed by me. Each one documents what it does, how it's built, and what is still unfinished. I'm currently learning TypeScript and deepening my API design work.",
   ],
 
   availability: "Open to freelance projects and full-time conversations",
 };
 
-// Primary navigation — anchors on the single-page layout.
 export const nav = [
-  { label: "Work", href: "/#work" },
-  { label: "About", href: "/#about" },
-  { label: "Services", href: "/#services" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Work", href: "/#work", section: "work", match: "/work" },
+  { label: "About", href: "/#about", section: "about" },
+  { label: "Services", href: "/#services", section: "services" },
+  { label: "Contact", href: "/#contact", section: "contact" },
 ];
 
-// Every public profile, exactly as confirmed. Update hrefs here only.
 export const socials = [
   { label: "GitHub", handle: "@arzenjs", href: "https://github.com/arzenjs" },
   { label: "LinkedIn", handle: "arzenjs", href: "https://www.linkedin.com/in/arzenjs/" },
@@ -58,6 +51,11 @@ export const socials = [
   { label: "Fiverr", handle: "arzenjs", href: "https://www.fiverr.com/arzenjs" },
   { label: "Upwork", handle: "Arsalan Sheikh", href: "https://www.upwork.com/freelancers/~018323d6dd0a649d86" },
 ];
+
+// Compact subset surfaced inside the hero.
+export const heroSocials = socials.filter((s) =>
+  ["GitHub", "LinkedIn", "X", "Instagram"].includes(s.label)
+);
 
 export const devLab = {
   label: "ARZEN Dev Lab",
@@ -88,14 +86,14 @@ export const services = [
     index: "01",
     title: "Business Websites",
     description:
-      "Fast, search-friendly marketing sites that make a small business look established — clear messaging, strong typography, and pages that load before the visitor loses patience.",
+      "Fast, search-friendly marketing sites that make a small business look established - clear messaging, strong typography, and pages that load before the visitor loses patience.",
     points: ["Marketing & landing pages", "SEO-ready structure and metadata", "Content you can edit without me"],
   },
   {
     index: "02",
     title: "Full-Stack Web Apps",
     description:
-      "Products with real state and real users: accounts, dashboards, CRUD workflows, bookings and checkout integrations — built on Next.js, MongoDB and Auth.js.",
+      "Products with real state and real users: accounts, dashboards, CRUD workflows, bookings and checkout integrations - built on Next.js, MongoDB and Auth.js.",
     points: ["Authentication & roles", "MongoDB / Mongoose data models", "API routes with validation"],
   },
   {
@@ -111,7 +109,7 @@ export const processSteps = [
   {
     index: "01",
     title: "Listen & scope",
-    text: "We agree on what the site must achieve, what it must not do, and what 'done' means — in writing, before any design or code.",
+    text: "We agree on what the site must achieve, what it must not do, and what 'done' means - in writing, before any design or code.",
   },
   {
     index: "02",
@@ -126,6 +124,6 @@ export const processSteps = [
   {
     index: "04",
     title: "Launch & hand over",
-    text: "Deployed, measured, and documented — with a handover guide so you're never dependent on me for small changes.",
+    text: "Deployed, measured, and documented - with a handover guide so you're never dependent on me for small changes.",
   },
 ];

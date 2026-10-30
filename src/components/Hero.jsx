@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
-import { site, skillGroups } from "@/lib/site";
+import { ArrowUpRight, ArrowRight, Mail } from "lucide-react";
+import { site, heroSocials } from "@/lib/site";
 import Marquee from "@/components/Marquee";
 
 const marqueeItems = [
@@ -11,82 +11,126 @@ const marqueeItems = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 md:pt-36" aria-labelledby="hero-heading">
-      {/* faint vertical hairlines in the background */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 shell grid grid-cols-2 md:grid-cols-4">
-        {[...Array(4)].map((_, i) => (
-          <div key={i} className={`border-l border-line/50 ${i === 3 ? "border-r" : ""} ${i > 1 ? "hidden md:block" : ""}`} />
-        ))}
-      </div>
+    <section className="relative overflow-hidden pt-24 md:pt-28" aria-labelledby="hero-heading">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_28rem_at_76%_-12%,rgba(255,255,255,0.08),transparent_62%)]" />
 
-      <div className="shell relative grid items-end gap-12 pb-16 md:grid-cols-[1.5fr_1fr] md:pb-24 lg:gap-20">
-        <div className="stagger">
-          <p style={{ "--stagger": 0 }} className="eyebrow flex flex-wrap items-center gap-x-3 gap-y-2">
-            <span>{site.fullName}</span>
-            <span aria-hidden="true" className="text-faint">/</span>
-            <span>{site.role} · {site.tagline}</span>
-          </p>
+      <div className="shell relative pb-16 md:pb-20">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div className="relative z-10">
+            <p className="stagger inline-flex flex-wrap items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-dim">
+              <span style={{ "--stagger": 0 }} className="rounded-full border border-line bg-panel/70 px-2.5 py-1.5 text-faint">
+                {site.role}
+              </span>
+              <span style={{ "--stagger": 1 }} className="text-faint">•</span>
+              <span style={{ "--stagger": 2 }}>{site.tagline}</span>
+            </p>
 
-          <h1
-            id="hero-heading"
-            style={{ "--stagger": 1 }}
-            className="display mt-6 text-[clamp(2.6rem,7.5vw,5.75rem)]"
-          >
-            Websites that win clients.
-            <span className="block text-dim">Apps that survive production.</span>
-          </h1>
+            <h1 id="hero-heading" className="display mt-6 text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-[-0.07em]">
+              <span className="line-mask block">
+                <span style={{ "--stagger": 3 }}>Arsalan</span>
+              </span>
+              <span className="mt-2 block font-mono text-[0.17em] font-medium uppercase tracking-[0.22em] text-dim">
+                Full-Stack Web Developer
+              </span>
+            </h1>
 
-          <p style={{ "--stagger": 2 }} className="mt-7 max-w-xl text-base leading-relaxed text-dim sm:text-lg">
-            {site.intro}
-          </p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-dim sm:text-[1.15rem]">
+              <span className="text-ink">Building <em className="accent-serif text-ink">high-craft</em> business websites and full-stack web applications.</span>
+            </p>
 
-          <div style={{ "--stagger": 3 }} className="mt-9 flex flex-wrap items-center gap-4">
-            <Link
-              href="/#contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-bg transition-transform hover:-translate-y-0.5"
-            >
-              Start a project
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-            </Link>
-            <Link
-              href="/#work"
-              className="group inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink"
-            >
-              View selected work
-              <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
-            </Link>
+            <p className="stagger mt-5 max-w-xl text-base leading-relaxed text-dim" style={{ "--stagger": 5 }}>
+              <span>{site.intro}</span>
+            </p>
+
+            <div className="stagger mt-8 flex flex-wrap items-center gap-4" style={{ "--stagger": 6 }}>
+              <Link
+                href="/#contact"
+                className="pressable group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-panel hover:text-ink"
+              >
+                Start a conversation
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/work"
+                className="pressable group inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink hover:bg-panel"
+              >
+                Explore my work
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="stagger mt-8 flex flex-wrap items-center gap-x-5 gap-y-3" style={{ "--stagger": 7 }}>
+              {heroSocials.map((s, i) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-sweep font-mono text-[11px] uppercase tracking-[0.18em] text-dim transition-colors hover:text-ink"
+                >
+                  {s.label}
+                </a>
+              ))}
+              <a
+                href={`mailto:${site.email}`}
+                className="group inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-dim transition-colors hover:text-ink"
+              >
+                <Mail className="size-3.5 text-faint transition-colors group-hover:text-ink" aria-hidden="true" />
+                Email
+              </a>
+            </div>
           </div>
 
-          <p style={{ "--stagger": 4 }} className="mt-9 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
-            <MapPin className="size-3.5" aria-hidden="true" />
-            {site.location}
-            <span aria-hidden="true" className="text-line-strong">—</span>
-            <span className="text-emerald-400/90 normal-case tracking-normal font-sans text-xs">{site.availability}</span>
-          </p>
+          <div className="relative mx-auto w-full max-w-[28rem] lg:max-w-none">
+            <div className="absolute -left-3 top-8 hidden rounded-full border border-line bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
+              Patna, India
+            </div>
+            <div className="absolute -right-1 bottom-8 hidden rounded-full border border-line bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
+              Next.js · React · Node
+            </div>
+
+            <figure className="stagger relative" style={{ "--stagger": 4 }}>
+              <div className="absolute -inset-4 rounded-[2rem] border border-line/60 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_68%)] blur-2xl" aria-hidden="true" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-3 shadow-[0_1rem_2.5rem_rgba(0,0,0,0.35)]">
+                <div className="absolute left-5 top-5 z-10 rounded-full border border-line bg-bg/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/80 backdrop-blur-sm">
+                  {site.alias}.dev
+                </div>
+                <Image
+                  src={site.portrait}
+                  alt="Temporary AI-generated placeholder portrait standing in for a photograph of Arsalan"
+                  width={880}
+                  height={1100}
+                  priority
+                  className="h-[34rem] w-full rounded-[1.5rem] object-cover grayscale transition-all duration-700 ease-out hover:scale-[1.015]"
+                />
+              </div>
+            </figure>
+          </div>
         </div>
 
-        {/* Portrait — deliberately labelled as an AI placeholder. */}
-        <figure style={{ "--stagger": 2 }} className="stagger relative mx-auto w-full max-w-sm md:max-w-none">
-          <div className="relative overflow-hidden rounded-2xl border border-line bg-panel">
-            <Image
-              src={site.portrait}
-              alt="Temporary AI-generated placeholder portrait standing in for a photograph of Arsalan"
-              width={880}
-              height={1100}
-              priority
-              className="h-auto w-full object-cover grayscale transition-transform duration-700 hover:scale-[1.02]"
-            />
-            <span aria-hidden="true" className="absolute left-3 top-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/70">
-              {site.alias}.dev
-            </span>
+        <div className="stagger mt-12" style={{ "--stagger": 8 }}>
+          <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
+            {site.facts.map((fact, i) => (
+              <div key={fact.label} className="bg-bg/95 px-5 py-4 transition-colors duration-300 hover:bg-panel">
+                <p className="eyebrow text-[10px]">{fact.label}</p>
+                <p className="mt-2 flex items-center gap-2 text-sm text-ink">
+                  {fact.live && (
+                    <span className="relative flex size-1.5" aria-hidden="true">
+                      <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                      <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+                    </span>
+                  )}
+                  {fact.value}
+                </p>
+              </div>
+            ))}
           </div>
-          <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
-            Temporary AI-generated portrait · real photo coming soon
-          </figcaption>
-        </figure>
+        </div>
       </div>
 
-      <Marquee items={marqueeItems} ariaLabel="Technologies I work with" />
+      <div className="mt-4">
+        <Marquee items={marqueeItems} ariaLabel="Technologies I work with" />
+      </div>
     </section>
   );
 }

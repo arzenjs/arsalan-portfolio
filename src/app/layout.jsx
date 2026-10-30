@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import { site, socials } from "@/lib/site";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -7,15 +7,22 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["italic"],
+  variable: "--font-instrument",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role} | ${site.alias}`,
-    template: `%s — ${site.name} · ${site.alias}`,
+    default: `${site.name} - ${site.role} | ${site.alias}`,
+    template: `%s - ${site.name} · ${site.alias}`,
   },
   description:
-    "Arsalan (Mohammad Arsalan Sheikh / ARZEN) is a full-stack web developer in Patna, India, building business websites, full-stack web applications and custom web solutions with Next.js, React, Node.js and MongoDB.",
+    "Arsalan (Mohammad Arsalan Sheikh / ARZEN) is a freelance full-stack web developer in Patna, India, building high-craft business websites and full-stack web applications with Next.js, React, Node.js and MongoDB.",
   keywords: [
     "Arsalan", "Mohammad Arsalan Sheikh", "ARZEN", "arzenjs",
     "full-stack web developer", "freelance web developer India",
@@ -29,17 +36,17 @@ export const metadata = {
     type: "website",
     locale: "en_IN",
     url: site.url,
-    siteName: `${site.name} — ${site.role}`,
-    title: `${site.name} — ${site.role} | ${site.alias}`,
+    siteName: `${site.name} - ${site.role}`,
+    title: `${site.name} - ${site.role} | ${site.alias}`,
     description:
-      "Business websites and full-stack web applications, designed and built end-to-end with Next.js, React and MongoDB. Based in Patna, working worldwide.",
-    images: [{ url: site.ogImage, width: 1200, height: 630, alt: `${site.name} — ${site.role}` }],
+      "Building high-craft business websites and full-stack web applications with Next.js, React, Node.js and MongoDB. Based in Patna, working worldwide.",
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: `${site.name} - ${site.role}` }],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@arzenjs",
-    title: `${site.name} — ${site.role} | ${site.alias}`,
-    description: "Business websites and full-stack web applications, built end-to-end with Next.js and React.",
+    title: `${site.name} - ${site.role} | ${site.alias}`,
+    description: "Building high-craft business websites and full-stack web applications with Next.js, React and MongoDB.",
     images: [site.ogImage],
   },
   robots: {
@@ -54,38 +61,46 @@ export const viewport = {
   colorScheme: "dark",
 };
 
-// JSON-LD: describe the person honestly — no invented job titles, awards
-// or client counts. sameAs links every confirmed public profile.
-function PersonJsonLd() {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: site.fullName,
-    alternateName: site.alias,
-    jobTitle: site.role,
-    email: `mailto:${site.email}`,
-    url: site.url,
-    image: `${site.url}${site.portrait}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Patna",
-      addressRegion: "Bihar",
-      addressCountry: "IN",
-    },
-    knowsAbout: ["JavaScript", "React", "Next.js", "Node.js", "MongoDB", "Tailwind CSS", "Web development"],
-    sameAs: socials.map((s) => s.href),
-  };
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.fullName,
+  alternateName: site.alias,
+  jobTitle: site.role,
+  email: `mailto:${site.email}`,
+  url: site.url,
+  image: `${site.url}${site.portrait}`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Patna",
+    addressRegion: "Bihar",
+    addressCountry: "IN",
+  },
+  knowsAbout: ["JavaScript", "React", "Next.js", "Node.js", "MongoDB", "Tailwind CSS", "Web development"],
+  sameAs: socials.map((s) => s.href),
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: `${site.name} - ${site.role}`,
+  url: site.url,
+  author: { "@type": "Person", name: site.fullName, url: site.url },
+  inLanguage: "en",
+};
+
+function JsonLdScripts() {
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
+    </>
   );
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable} ${instrument.variable}`}>
       <body className="min-h-dvh bg-bg font-sans text-ink antialiased">
         <a
           href="#main"
@@ -93,7 +108,7 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
-        <PersonJsonLd />
+        <JsonLdScripts />
         <Nav />
         <main id="main">{children}</main>
         <Footer />

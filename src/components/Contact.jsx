@@ -50,7 +50,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="shell pt-24 md:pt-32" aria-labelledby="contact-heading">
+    <section id="contact" className="shell pt-12 md:pt-16" aria-labelledby="contact-heading">
       <div className="rounded-2xl border border-line bg-panel p-7 sm:p-10 md:p-14">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <div>
@@ -93,8 +93,10 @@ export default function Contact() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5" noValidate={false}>
-            {/* Honeypot: invisible to humans, bots fill it and get dropped. */}
-            <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+            {/* Honeypot: invisible to humans, bots fill it and get dropped.
+                Fixed positioning keeps it offscreen regardless of any
+                positioned ancestor in the layout tree. */}
+            <div className="fixed -left-[9999px] top-0 h-0 w-0 overflow-hidden" aria-hidden="true">
               <label>
                 Company
                 <input
@@ -173,7 +175,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-bg transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-60"
+                className="pressable group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-bg disabled:translate-y-0 disabled:opacity-60"
               >
                 {status === "sending" ? (
                   <>

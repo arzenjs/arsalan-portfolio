@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check, Info, ExternalLink, Code2 } from "lucide-react";
 import { projects, getProject } from "@/lib/projects";
+import { site } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 
 export function generateStaticParams() {
@@ -25,6 +26,25 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Structured data for the project itself — only confirmed facts: the live
+// demo when one exists, the public repository when one exists, otherwise
+// neither. Nothing is fabricated.
+function ProjectJsonLd({ project }) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": project.schemaType || "CreativeWork",
+    name: project.name,
+    description: project.summary,
+    url: project.live || `${site.url}/work/${project.slug}`,
+    keywords: project.stack.join(", "),
+    author: { "@type": "Person", name: site.fullName, url: site.url },
+    ...(project.repo ? { codeRepository: project.repo } : {}),
+  };
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+  );
+}
+
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
   const project = getProject(slug);
@@ -35,12 +55,14 @@ export default async function ProjectPage({ params }) {
 
   return (
     <article className="shell pt-28 md:pt-36">
+      <ProjectJsonLd project={project} />
+
       <Reveal>
         <Link
-          href="/#work"
-          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-dim transition-colors hover:text-ink"
+          href="/work"
+          className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-dim transition-colors hover:text-ink"
         >
-          <ArrowLeft className="size-3.5" aria-hidden="true" />
+          <ArrowLeft className="size-3.5 transition-transform duration-300 group-hover:-translate-x-0.5" aria-hidden="true" />
           All work
         </Link>
       </Reveal>
@@ -67,23 +89,28 @@ export default async function ProjectPage({ params }) {
             <div className="border-b border-line pb-4">
               <dt className="eyebrow">Links</dt>
               <dd className="mt-3 flex flex-wrap gap-3">
-                {project.live && (
+                {project.live ? (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-bg transition-transform hover:-translate-y-0.5"
+                    className="pressable inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-bg"
                   >
                     <ExternalLink className="size-3.5" aria-hidden="true" />
                     Live demo
                   </a>
+                ) : (
+                  <span className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
+                    <ExternalLink className="size-3.5" aria-hidden="true" />
+                    Demo not published
+                  </span>
                 )}
                 {project.repo ? (
                   <a
                     href={project.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-line-strong px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:border-ink"
+                    className="pressable inline-flex items-center gap-2 rounded-full border border-line-strong px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:border-ink"
                   >
                     <Code2 className="size-3.5" aria-hidden="true" />
                     {project.repoNote || "Source"}
@@ -173,12 +200,12 @@ export default async function ProjectPage({ params }) {
         >
           <div>
             <p className="eyebrow">Next project</p>
-            <p className="display mt-3 text-[clamp(1.75rem,4vw,3rem)] text-ink">
+            <p className="display mt-3 text-[clamp(1.75rem,4vw,3rem)] text-ink transition-colors">
               {next.name}
             </p>
           </div>
-          <span className="inline-flex size-12 items-center justify-center rounded-full border border-line-strong text-ink transition-all group-hover:bg-ink group-hover:text-bg">
-            <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+          <span className="inline-flex size-12 items-center justify-center rounded-full border border-line-strong text-ink transition-all duration-300 group-hover:bg-ink group-hover:text-bg">
+            <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
           </span>
         </Link>
       </Reveal>

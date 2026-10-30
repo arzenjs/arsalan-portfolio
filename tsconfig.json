@@ -1,8 +1,4 @@
 {
-  // NOTE: This project is intentionally 100% JavaScript (.js / .jsx).
-  // This file only exists so editors and `tsc --noEmit` can resolve the
-  // "@/..." path alias and validate plain JavaScript syntax. TypeScript
-  // source files and TS syntax are not used anywhere in this codebase.
   "compilerOptions": {
     "target": "ES2020",
     "lib": [
