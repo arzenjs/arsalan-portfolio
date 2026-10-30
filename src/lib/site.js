@@ -5,7 +5,10 @@ export const site = {
   alias: "ARZEN",
   role: "Full-Stack Web Developer",
   tagline: "Freelancer",
+  // Full location is for structured data / SEO. Visible UI copy should use
+  // `region` instead of repeating the full city and state everywhere.
   location: "Patna, Bihar, India",
+  region: "India",
   email: "mohammadarsalan02013@gmail.com",
 
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://arsalan-portfolio-beige.vercel.app",
@@ -14,21 +17,21 @@ export const site = {
   ogImage: "/images/og.jpg",
   headline: "Building high-craft business websites and full-stack web applications.",
   intro:
-    "I'm Arsalan, a freelance full-stack developer based in Patna, India. I take " +
-    "projects from first sketch to deployed product - Next.js and React up front, " +
-    "Node.js, MongoDB and Auth.js underneath - so the website that wins the client " +
-    "is the same one that survives real users.",
+    "I'm Arsalan, a freelance full-stack developer based in India. I take " +
+    "projects from first sketch to deployed product: Next.js and React up " +
+    "front, Node.js, MongoDB and Auth.js underneath. The build that wins the " +
+    "client is the same one that has to survive real users.",
 
   facts: [
-    { label: "Based in", value: "Patna, India - working worldwide" },
+    { label: "Based in", value: "India · working worldwide" },
     { label: "Focus", value: "Business websites · Web apps · Custom builds" },
     { label: "Status", value: "Open to freelance & full-time work", live: true },
   ],
 
   about: [
-    "I'm Mohammad Arsalan Sheikh - I go by Arsalan, and ARZEN is my online handle. I'm a full-stack web developer from Patna, India, working with clients who need a website or web application built properly: fast, accessible, and easy to maintain after handover.",
-    "My day-to-day stack is JavaScript end to end - Next.js and React on the front, Node.js with MongoDB/Mongoose and Auth.js on the back. I care about the unglamorous parts as much as the visuals: semantic HTML, honest content, clean server boundaries, and code the next developer can actually read.",
-    "The projects on this site are my own builds and industry-solution demonstrations - designed, developed, and deployed by me. Each one documents what it does, how it's built, and what is still unfinished. I'm currently learning TypeScript and deepening my API design work.",
+    "I'm Mohammad Arsalan Sheikh, known as Arsalan (ARZEN online). I'm a full-stack web developer from India, working with clients who need a website or web application built properly: fast, accessible, and easy to maintain after handover.",
+    "My stack is JavaScript end to end: Next.js and React up front, Node.js with MongoDB, Mongoose and Auth.js underneath. I care about the unglamorous parts as much as the visuals: semantic HTML, honest content, clean server boundaries, and code the next developer can read.",
+    "The projects on this site are my own builds and industry-solution demonstrations, designed, developed and deployed by me. Each one documents what it does, how it's built, and what is still in progress. I'm currently learning TypeScript and deepening my API design work.",
   ],
 
   availability: "Open to freelance projects and full-time conversations",
@@ -60,7 +63,7 @@ export const heroSocials = socials.filter((s) =>
 export const devLab = {
   label: "ARZEN Dev Lab",
   href: "https://github.com/arzenjs/arzen-dev-lab",
-  note: "Smaller experiments, UI clones and mini-apps live here.",
+  note: "Smaller experiments and mini-apps live in the",
 };
 
 // Confirmed skills, grouped. No skill bars, no invented proficiency numbers.
@@ -86,21 +89,21 @@ export const services = [
     index: "01",
     title: "Business Websites",
     description:
-      "Fast, search-friendly marketing sites that make a small business look established - clear messaging, strong typography, and pages that load before the visitor loses patience.",
+      "Fast, search-friendly marketing sites that make a small business look established: clear messaging, strong typography, and pages that load before the visitor loses patience.",
     points: ["Marketing & landing pages", "SEO-ready structure and metadata", "Content you can edit without me"],
   },
   {
     index: "02",
     title: "Full-Stack Web Apps",
     description:
-      "Products with real state and real users: accounts, dashboards, CRUD workflows, bookings and checkout integrations - built on Next.js, MongoDB and Auth.js.",
+      "Products with real state and real users: accounts, dashboards, CRUD workflows, bookings and checkout integrations, built on Next.js, MongoDB and Auth.js.",
     points: ["Authentication & roles", "MongoDB / Mongoose data models", "API routes with validation"],
   },
   {
     index: "03",
     title: "Custom Web Solutions",
     description:
-      "The in-between work: rebuilding a slow site, adding a booking or contact flow, wiring a CMS-shaped config, or turning a rough idea into a scoped, working product.",
+      "The in-between work: rebuilding a slow site, adding a booking or contact flow, wiring a config-driven content setup, or turning a rough idea into a scoped, working product.",
     points: ["Redesigns & rebuilds", "Forms, booking & payment flows", "Honest scoping before any code"],
   },
 ];
@@ -109,7 +112,7 @@ export const processSteps = [
   {
     index: "01",
     title: "Listen & scope",
-    text: "We agree on what the site must achieve, what it must not do, and what 'done' means - in writing, before any design or code.",
+    text: "We agree on what the site must achieve, what it must not do, and what 'done' means, in writing, before any design or code.",
   },
   {
     index: "02",
@@ -124,6 +127,6 @@ export const processSteps = [
   {
     index: "04",
     title: "Launch & hand over",
-    text: "Deployed, measured, and documented - with a handover guide so you're never dependent on me for small changes.",
+    text: "Deployed, measured and documented, with a handover guide so you're never dependent on me for small changes.",
   },
 ];

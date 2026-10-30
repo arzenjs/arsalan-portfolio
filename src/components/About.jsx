@@ -9,7 +9,7 @@ function IdentityCard() {
     ["Name", site.fullName],
     ["Alias", site.alias],
     ["Role", `${site.role} · ${site.tagline}`],
-    ["Base", "Patna, India — remote worldwide"],
+    ["Base", "India · remote worldwide"],
     ["Focus", "Business websites · web applications"],
   ];
 
@@ -37,14 +37,14 @@ function IdentityCard() {
           <Mail className="size-4 text-faint transition-colors group-hover:text-ink" aria-hidden="true" />
           <span className="link-sweep break-all">{site.email}</span>
         </a>
-        <p className="flex items-center gap-2.5 text-sm text-dim">
-          <MapPin className="size-4 text-faint" aria-hidden="true" />
-          {site.location}
-        </p>
+              <p className="flex items-center gap-2.5 text-sm text-dim">
+                <MapPin className="size-4 text-faint" aria-hidden="true" />
+                {site.region}
+              </p>
       </div>
       <p className="mt-5 border-t border-line pt-5 text-xs leading-relaxed text-faint">
-        Every section of this site — copy, components, animation and database —
-        was written by the person above.
+        Design, copy, components and the contact API on this site are all
+        hand-built by me.
       </p>
     </div>
   );
@@ -107,7 +107,7 @@ export default function About() {
                   {i < learning.length - 1 ? " · " : ""}
                 </span>
               ))}
-              {" "}— listed separately because I only claim what I can defend.
+              .
             </p>
           </Reveal>
         </div>

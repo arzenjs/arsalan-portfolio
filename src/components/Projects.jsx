@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { projects } from "@/lib/projects";
-import { devLab } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 
 function ProjectRow({ project, index }) {
@@ -10,7 +9,7 @@ function ProjectRow({ project, index }) {
     <Reveal delay={index * 0.06}>
       <Link
         href={`/work/${project.slug}`}
-        className="group grid gap-6 border-t border-line py-10 transition-colors duration-300 hover:bg-panel/60 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:py-12"
+        className="group grid gap-6 rounded-xl border border-transparent px-4 py-8 transition-[background-color,border-color] duration-300 hover:border-ink/10 hover:bg-panel/40 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:px-6 md:py-10"
         aria-label={`${project.name} — ${project.summary}`}
       >
         <span className="font-mono text-xs tracking-[0.2em] text-faint transition-colors duration-300 group-hover:text-dim">
@@ -21,7 +20,7 @@ function ProjectRow({ project, index }) {
           <div className="relative hidden h-24 w-40 shrink-0 overflow-hidden rounded-lg border border-line sm:block">
             <Image
               src={project.cover}
-              alt={`${project.name} — ${project.coverNote}`}
+              alt={`${project.name} interface preview`}
               fill
               sizes="160px"
               className="object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
@@ -80,26 +79,11 @@ export default function Projects() {
         </div>
       </Reveal>
 
-      <div role="list">
+      <div role="list" className="divide-y divide-line border-y border-line">
         {projects.map((project, i) => (
           <ProjectRow key={project.slug} project={project} index={i} />
         ))}
       </div>
-
-      <Reveal>
-        <p className="border-t border-line pt-8 text-sm text-dim">
-          Smaller experiments, UI clones and mini-apps live in the{" "}
-          <a
-            href={devLab.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-sweep text-ink"
-          >
-            {devLab.label}
-          </a>{" "}
-          — deliberately kept out of the main showcase so this list stays strong.
-        </p>
-      </Reveal>
     </section>
   );
 }

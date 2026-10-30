@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Mail } from "lucide-react";
 import { site, heroSocials } from "@/lib/site";
 import Marquee from "@/components/Marquee";
+import FluxLines from "@/components/FluxLines";
 
 const marqueeItems = [
   "JavaScript", "React", "Next.js", "Node.js", "MongoDB",
@@ -12,20 +13,21 @@ const marqueeItems = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-24 md:pt-28" aria-labelledby="hero-heading">
+      <FluxLines />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_28rem_at_76%_-12%,rgba(255,255,255,0.08),transparent_62%)]" />
 
-      <div className="shell relative pb-16 md:pb-20">
+      <div className="shell relative pb-14 md:pb-16">
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="relative z-10">
             <p className="stagger inline-flex flex-wrap items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-dim">
               <span style={{ "--stagger": 0 }} className="rounded-full border border-line bg-panel/70 px-2.5 py-1.5 text-faint">
-                {site.role}
+                {site.role} • {site.tagline}
               </span>
-              <span style={{ "--stagger": 1 }} className="text-faint">•</span>
-              <span style={{ "--stagger": 2 }}>{site.tagline}</span>
+              {/* <span style={{ "--stagger": 1 }} className="text-faint">•</span> */}
+              {/* <span style={{ "--stagger": 2 }}>{site.tagline}</span> */}
             </p>
 
-            <h1 id="hero-heading" className="display mt-6 text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-[-0.07em]">
+            <h1 id="hero-heading" className="display mt-6 text-[clamp(3.25rem,8vw,6.5rem)] leading-[0.9] tracking-[-0.07em]">
               <span className="line-mask block">
                 <span style={{ "--stagger": 3 }}>Arsalan</span>
               </span>
@@ -34,7 +36,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-dim sm:text-[1.15rem]">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed sm:text-[1.15rem]">
               <span className="text-ink">Building <em className="accent-serif text-ink">high-craft</em> business websites and full-stack web applications.</span>
             </p>
 
@@ -60,7 +62,7 @@ export default function Hero() {
             </div>
 
             <div className="stagger mt-8 flex flex-wrap items-center gap-x-5 gap-y-3" style={{ "--stagger": 7 }}>
-              {heroSocials.map((s, i) => (
+              {heroSocials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
@@ -82,10 +84,7 @@ export default function Hero() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[28rem] lg:max-w-none">
-            <div className="absolute -left-3 top-8 hidden rounded-full border border-line bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
-              Patna, India
-            </div>
-            <div className="absolute -right-1 bottom-8 hidden rounded-full border border-line bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
+            <div className="absolute -right-1 bottom-6 z-10 hidden rounded-full border border-line bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
               Next.js · React · Node
             </div>
 
@@ -97,11 +96,11 @@ export default function Hero() {
                 </div>
                 <Image
                   src={site.portrait}
-                  alt="Temporary AI-generated placeholder portrait standing in for a photograph of Arsalan"
+                  alt="Portrait of Arsalan (Mohammad Arsalan Sheikh), full-stack web developer"
                   width={880}
                   height={1100}
                   priority
-                  className="h-[34rem] w-full rounded-[1.5rem] object-cover grayscale transition-all duration-700 ease-out hover:scale-[1.015]"
+                  className="h-[22rem] w-full rounded-[1.5rem] object-cover grayscale transition-all duration-700 ease-out hover:scale-[1.015] sm:h-[28rem] lg:h-[31rem]"
                 />
               </div>
             </figure>
@@ -110,7 +109,7 @@ export default function Hero() {
 
         <div className="stagger mt-12" style={{ "--stagger": 8 }}>
           <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
-            {site.facts.map((fact, i) => (
+            {site.facts.map((fact) => (
               <div key={fact.label} className="bg-bg/95 px-5 py-4 transition-colors duration-300 hover:bg-panel">
                 <p className="eyebrow text-[10px]">{fact.label}</p>
                 <p className="mt-2 flex items-center gap-2 text-sm text-ink">

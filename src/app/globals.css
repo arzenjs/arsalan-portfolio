@@ -14,6 +14,9 @@
   --color-ink: #f4f4f2;
   --color-dim: #a6a6ad;
   --color-faint: #7d7d86;
+  /* Restrained crimson used sparingly: glare tint, flux-line strand,
+     small state details. Never used for large fills or body text. */
+  --color-crimson: #e14a5d;
 
   --font-display: var(--font-grotesk), "Space Grotesk", system-ui, sans-serif;
   --font-serif: var(--font-instrument), Georgia, serif;
@@ -52,7 +55,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
+}
+
+/* Same offset on every in-page anchor target, so fragment navigation lands
+   with the section heading fully clear of the 5rem floating navbar. */
+[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 body {
@@ -170,6 +179,33 @@ body::before {
 /* Route-change page fade (template.jsx) and the route loader's hairline. */
 .page-enter { animation: var(--animate-page-in); }
 .loader-line { animation: var(--animate-loader-line); }
+
+/* Glare hover: a soft, low-contrast light reflection that follows the pointer
+   across interactive cards (vars --gx/--gy set by GlareHover.jsx). White with
+   a restrained crimson tint; gated to precise pointer devices or keyboard
+   focus so touch users never depend on it. */
+.glare { position: relative; }
+.glare::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(
+    22rem circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(255, 255, 255, 0.065),
+    rgba(225, 74, 93, 0.04) 42%,
+    transparent 70%
+  );
+}
+@media (hover: hover) and (pointer: fine) {
+  .glare:hover::after,
+  .glare:focus-within::after {
+    opacity: 1;
+  }
+}
 
 /* Reduced motion: honor the OS setting everywhere. */
 @media (prefers-reduced-motion: reduce) {

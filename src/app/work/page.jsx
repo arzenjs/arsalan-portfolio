@@ -4,6 +4,7 @@ import { ArrowUpRight, Code2, ExternalLink, FileText } from "lucide-react";
 import { projects } from "@/lib/projects";
 import { site, devLab } from "@/lib/site";
 import Reveal from "@/components/Reveal";
+import GlareHover from "@/components/GlareHover";
 
 export const metadata = {
   title: "Work",
@@ -45,8 +46,9 @@ function WorkJsonLd() {
 function ProjectCard({ project, index }) {
   return (
     <Reveal delay={(index % 2) * 0.08} className="h-full">
-      <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel transition-colors duration-300 hover:border-line-strong">
-        <Link
+      <GlareHover className="h-full rounded-2xl">
+        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel transition-colors duration-300 hover:border-line-strong">
+          <Link
           href={`/work/${project.slug}`}
           className="relative block aspect-[16/10] overflow-hidden border-b border-line"
           aria-label={`${project.name} case study`}
@@ -54,7 +56,7 @@ function ProjectCard({ project, index }) {
         >
           <Image
             src={project.cover}
-            alt={`${project.name} — ${project.coverNote}`}
+            alt={`${project.name} interface preview`}
             fill
             sizes="(max-width: 1024px) 100vw, 34rem"
             className="object-cover grayscale transition-all duration-500 group-hover:scale-[1.03] group-hover:grayscale-0"
@@ -118,7 +120,8 @@ function ProjectCard({ project, index }) {
             </Link>
           </div>
         </div>
-      </article>
+        </article>
+      </GlareHover>
     </Reveal>
   );
 }
@@ -135,9 +138,9 @@ export default function WorkPage() {
             Everything I&apos;ve <em className="accent-serif">shipped</em>.
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-dim sm:text-lg">
-            Four documented builds. Two labels, always stated plainly: full-stack
-            web applications are complete products; industry-solution
-            demonstrations are realistic builds for fictional businesses — designed
+            Four documented builds, labelled plainly: full-stack web
+            applications are complete products, and industry-solution
+            demonstrations are realistic builds for fictional businesses, made
             to show how I&apos;d solve that industry&apos;s problems. None of them are
             presented as paid client work.
           </p>

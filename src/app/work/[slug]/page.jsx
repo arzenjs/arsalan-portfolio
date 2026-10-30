@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${project.name} — case study`,
       description: project.summary,
-      images: [{ url: project.cover, alt: `${project.name} cover artwork` }],
+      images: [{ url: project.cover, alt: `${project.name} interface preview` }],
     },
   };
 }
@@ -145,16 +145,13 @@ export default async function ProjectPage({ params }) {
           <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-line bg-panel">
             <Image
               src={project.cover}
-              alt={`${project.name} — ${project.coverNote}`}
+              alt={`${project.name} interface preview`}
               fill
               priority
               sizes="(max-width: 768px) 100vw, 72rem"
               className="object-cover"
             />
           </div>
-          <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
-            {project.coverNote}
-          </figcaption>
         </figure>
       </Reveal>
 

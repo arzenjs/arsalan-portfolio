@@ -4,7 +4,7 @@ import { site, socials, nav } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="hairline-t mt-24">
+    <footer className="hairline-t mt-16">
       <div className="shell py-14">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
@@ -17,7 +17,7 @@ export default function Footer() {
             </a>
             <p className="mt-5 flex items-center gap-2 text-sm text-dim">
               <MapPin className="size-4 text-faint" aria-hidden="true" />
-              {site.location} — working worldwide
+              {site.region} · working worldwide
             </p>
             <p className="mt-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-dim">
               <span className="relative flex size-2">
@@ -63,7 +63,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-faint sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {site.fullName}</p>
-          <p>JavaScript · Next.js · Tailwind — no TypeScript, by choice</p>
+          <p>JavaScript · Next.js · Tailwind CSS</p>
         </div>
       </div>
     </footer>

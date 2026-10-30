@@ -3,13 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, useScroll, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { site, nav } from "@/lib/site";
 
+const HIDE_THRESHOLD_Y = 96; // nav always visible near the top
+const HIDE_DELTA = 8; // dead-zone so small scroll jitters never flicker
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [activeSection, setActiveSection] = useState(() => {
     if (typeof window === "undefined") return null;
     return window.location.hash ? window.location.hash.slice(1) : null;
@@ -17,14 +20,15 @@ export default function Nav() {
   const [navigationIntent, setNavigationIntent] = useState(null);
   const [hoveredSection, setHoveredSection] = useState(null);
   const navigationIntentRef = useRef(null);
+  const lastScrollY = useRef(0);
   const reduce = useReducedMotion();
   const pathname = usePathname();
-  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     let settleFrame = 0;
     let stableFrames = 0;
     let previousScrollY = window.scrollY;
+    lastScrollY.current = window.scrollY;
 
     const syncActiveSection = () => {
       if (pathname !== "/") return;
@@ -69,7 +73,20 @@ export default function Nav() {
     };
 
     const updateScrollState = () => {
-      setScrolled(window.scrollY > 24);
+      // Hide on scroll down, reveal on scroll up, always visible near the
+      // top. The dead-zone (HIDE_DELTA) prevents flicker from small moves,
+      // and identical positions never trigger a state update.
+      const y = window.scrollY;
+      const delta = y - lastScrollY.current;
+      lastScrollY.current = y;
+
+      if (y <= HIDE_THRESHOLD_Y) {
+        setHidden(false);
+      } else if (delta > HIDE_DELTA) {
+        setHidden(true);
+      } else if (delta < -HIDE_DELTA) {
+        setHidden(false);
+      }
 
       if (navigationIntentRef.current) {
         if (!("onscrollend" in document) && !settleFrame) {
@@ -206,24 +223,18 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  // The nav never hides while the mobile menu is open.
+  const navHidden = hidden && !open;
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || open
-          ? "border-b border-line bg-bg/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 transition-transform duration-300 ease-out"
+      style={{ transform: navHidden ? "translateY(-110%)" : "translateY(0)" }}
     >
-      {!reduce && (
-        <motion.div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-px origin-left bg-ink/60"
-          style={{ scaleX: scrollYProgress }}
-        />
-      )}
-
       <div className="shell relative z-20 flex h-20 items-center justify-between">
-        <div className="w-full rounded-full border border-line/80 bg-bg/60 px-3.5 py-2.5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-md md:px-5">
+        {/* The floating rounded bar is the only chrome: no extra header
+            borders, background bars or ring shadows around it. */}
+        <div className="w-full rounded-full border border-line/80 bg-bg/60 px-3.5 py-2.5 backdrop-blur-md md:px-5">
           <div className="flex items-center justify-between gap-4">
             <Link
               href="/"
@@ -240,7 +251,6 @@ export default function Nav() {
 
             <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
               {nav.map((item) => {
-                const active = isActive(item);
                 const indicatorActive =
                   (navigationIntent || hoveredSection || routeActiveSection) === item.section;
                 return (
@@ -257,7 +267,7 @@ export default function Nav() {
                         ? "true"
                         : undefined
                     }
-                    className={`relative px-1.5 py-1 font-mono text-[10px] uppercase tracking-[0.22em] transition-all duration-300 ${
+                    className={`relative px-1.5 py-1 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-300 ${
                       indicatorActive ? "text-ink" : "text-dim hover:text-ink"
                     }`}
                   >
@@ -265,13 +275,13 @@ export default function Nav() {
                     {indicatorActive && !reduce && (
                       <motion.span
                         layoutId="nav-indicator"
-                        className="absolute inset-x-0 -bottom-2 h-px rounded-full bg-ink"
-                        transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 500, damping: 40 }}
+                        className="absolute inset-x-1 -bottom-1.5 block h-px rounded-full bg-ink"
+                        transition={{ type: "spring", stiffness: 500, damping: 42 }}
                         aria-hidden="true"
                       />
                     )}
                     {indicatorActive && reduce && (
-                      <span className="absolute inset-x-0 -bottom-2 h-px rounded-full bg-ink" aria-hidden="true" />
+                      <span className="absolute inset-x-1 -bottom-1.5 block h-px rounded-full bg-ink" aria-hidden="true" />
                     )}
                   </a>
                 );
@@ -308,9 +318,9 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -12, height: 0 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-line bg-bg md:hidden"
+            className="mx-4 rounded-2xl border border-line bg-bg/95 backdrop-blur-md md:hidden"
           >
-            <ul className="shell flex flex-col py-4">
+            <ul className="flex flex-col px-5 py-3">
               {nav.map((item, index) => {
                 const active = (navigationIntent || routeActiveSection) === item.section;
                 return (
@@ -328,18 +338,18 @@ export default function Nav() {
                         closeMenuAfterClick(event);
                       }}
                       aria-current={
-                        (navigationIntent || activeSection) === item.section
+                        (navigationIntent || routeActiveSection) === item.section
                           ? "true"
                           : undefined
                       }
-                      className={`group flex items-center justify-between border-b border-line py-4 font-display text-2xl tracking-tight transition-colors ${
+                      className={`group flex items-center justify-between border-b border-line py-3.5 font-display text-xl tracking-tight transition-colors ${
                         active ? "text-ink" : "text-dim"
                       }`}
                     >
                       <span className="flex items-center gap-3">
                         {item.label}
                         {active && (
-                          <span className="size-1.5 rounded-full bg-emerald-400" aria-label="Current section" />
+                          <span className="size-1.5 rounded-full bg-crimson" aria-label="Current section" />
                         )}
                       </span>
                       <ArrowUpRight
@@ -355,7 +365,7 @@ export default function Nav() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -16 }}
                 transition={{ delay: nav.length * 0.04, duration: 0.18 }}
-                className="pt-5 pb-2"
+                className="py-4"
               >
                 <a
                   href={pathname === "/" ? "#contact" : "/#contact"}
