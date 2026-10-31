@@ -45,10 +45,10 @@ function WorkJsonLd() {
 function ProjectCard({ project, index }) {
   return (
     <Reveal delay={(index % 2) * 0.08} className="h-full">
-        <article className="group relative flex h-full flex-col overflow-hidden">
+        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel transition-colors duration-300 hover:border-line-strong">
           <Link
           href={`/work/${project.slug}`}
-          className="relative block aspect-[16/10] overflow-hidden"
+          className="relative block aspect-[16/10] overflow-hidden border-b border-line"
           aria-label={`${project.name} case study`}
           tabIndex={-1}
         >
@@ -63,7 +63,7 @@ function ProjectCard({ project, index }) {
 
         <div className="flex flex-1 flex-col p-6 sm:p-7">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+            <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
               {project.kind}
             </span>
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-faint">
@@ -85,7 +85,7 @@ function ProjectCard({ project, index }) {
             {project.stack.slice(0, 5).join(" · ")}
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2.5 pt-5">
+          <div className="mt-6 flex flex-wrap items-center gap-2.5 border-t border-line pt-5">
             {project.live && (
               <a
                 href={project.live}
@@ -144,7 +144,7 @@ export default function WorkPage() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2">
+          <div className="mt-10 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
             <div>
               <p className="eyebrow">Full-stack web application</p>
               <p className="mt-2 text-sm leading-relaxed text-dim">
@@ -170,7 +170,7 @@ export default function WorkPage() {
       </div>
 
       <Reveal>
-        <div className="mt-16 flex flex-col gap-6 pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-6 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-xl text-sm leading-relaxed text-dim">
             {devLab.note}{" "}
             <a

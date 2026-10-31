@@ -14,13 +14,13 @@ function IdentityCard() {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden rounded-2xl border border-line bg-panel p-6 transition-colors duration-300 hover:border-line-strong">
       <p className="eyebrow">Identity card</p>
       <dl className="mt-5">
         {rows.map(([label, value]) => (
           <div
             key={label}
-            className="flex items-baseline justify-between gap-4 py-3 first:pt-0"
+            className="flex items-baseline justify-between gap-4 border-t border-line py-3 first:border-t-0 first:pt-0"
           >
             <dt className="shrink-0 font-mono text-[10px] uppercase tracking-[0.2em] text-faint">
               {label}
@@ -29,7 +29,7 @@ function IdentityCard() {
           </div>
         ))}
       </dl>
-      <div className="mt-5 space-y-2.5 pt-5">
+      <div className="mt-5 space-y-2.5 border-t border-line pt-5">
         <a
           href={`mailto:${site.email}`}
           className="group flex items-center gap-2.5 text-sm text-dim transition-colors hover:text-ink"
@@ -42,7 +42,7 @@ function IdentityCard() {
                 {site.region}
               </p>
       </div>
-      <p className="mt-5 pt-5 text-xs leading-relaxed text-faint">
+      <p className="mt-5 border-t border-line pt-5 text-xs leading-relaxed text-faint">
         Design, copy, components and the contact API on this site are all
         hand-built by me.
       </p>
@@ -82,7 +82,7 @@ export default function About() {
           </Reveal>
 
           <Reveal>
-            <div className="grid gap-8 sm:grid-cols-3">
+            <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
               {skillGroups.map((group) => (
                 <div key={group.title} className="group bg-bg p-6 transition-colors duration-300 hover:bg-panel">
                   <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-faint transition-colors group-hover:text-dim">

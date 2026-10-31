@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="relative z-10">
             <p className="stagger inline-flex flex-wrap items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-dim">
-              <span style={{ "--stagger": 0 }} className="text-faint">
+              <span style={{ "--stagger": 0 }} className="rounded-full border border-line bg-panel/70 px-2.5 py-1.5 text-faint">
                 {site.role} • {site.tagline}
               </span>
               {/* <span style={{ "--stagger": 1 }} className="text-faint">•</span> */}
@@ -84,13 +84,13 @@ export default function Hero() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[28rem] lg:max-w-none">
-            <div className="absolute -right-1 bottom-6 z-10 hidden rounded-full bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
+            <div className="absolute -right-1 bottom-6 z-10 hidden rounded-full border border-line bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
               Next.js · React · Node
             </div>
 
             <figure className="stagger relative" style={{ "--stagger": 4 }}>
-              <div className="relative overflow-hidden rounded-[2rem]">
-                <div className="absolute left-5 top-5 z-10 rounded-full bg-bg/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/80 backdrop-blur-sm">
+              <div className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-3 shadow-[0_1rem_2.5rem_rgba(0,0,0,0.35)]">
+                <div className="absolute left-5 top-5 z-10 rounded-full border border-line bg-bg/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/80 backdrop-blur-sm">
                   {site.alias}.dev
                 </div>
                 <Image
@@ -107,7 +107,7 @@ export default function Hero() {
         </div>
 
         <div className="stagger mt-12" style={{ "--stagger": 8 }}>
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
             {site.facts.map((fact) => (
               <div key={fact.label} className="bg-bg/95 px-5 py-4 transition-colors duration-300 hover:bg-panel">
                 <p className="eyebrow text-[10px]">{fact.label}</p>

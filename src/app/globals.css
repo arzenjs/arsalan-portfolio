@@ -55,13 +55,29 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 5rem;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) var(--color-bg);
 }
 
-/* Same offset on every in-page anchor target, so fragment navigation lands
-   with the section heading fully clear of the 5rem floating navbar. */
-[id] {
-  scroll-margin-top: 5.5rem;
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--color-bg);
+  border-radius: 999px;
+  background-color: var(--color-line-strong);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4a4a52;
 }
 
 body {
@@ -195,6 +211,9 @@ body::before {
 /* Route-change page fade (template.jsx) and the route loader's hairline. */
 .page-enter { animation: var(--animate-page-in); }
 .loader-line { animation: var(--animate-loader-line); }
+
+/* Shared hairline used to separate major page regions. */
+.hairline-t { border-top: 1px solid var(--color-line); }
 
 /* Reduced motion: honor the OS setting everywhere. */
 @media (prefers-reduced-motion: reduce) {

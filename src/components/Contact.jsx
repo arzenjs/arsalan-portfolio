@@ -52,7 +52,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="shell pt-12 md:pt-16" aria-labelledby="contact-heading">
-      <div className="relative overflow-hidden py-7 sm:py-10 md:py-14">
+      <div className="relative overflow-hidden rounded-2xl border border-line bg-panel p-7 sm:p-10 md:p-14">
         <FluxLines className="opacity-60" />
         <div className="relative grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <div>

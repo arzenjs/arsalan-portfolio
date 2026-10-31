@@ -31,7 +31,7 @@ function ProjectRow({ project, index }) {
               <h3 className="font-display text-2xl font-medium tracking-tight text-ink transition-transform duration-300 group-hover:translate-x-1 sm:text-3xl">
                 {project.name}
               </h3>
-              <span className="rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+              <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
                 {project.kind}
               </span>
             </div>
@@ -79,7 +79,7 @@ export default function Projects() {
         </div>
       </Reveal>
 
-      <div role="list">
+      <div role="list" className="divide-y divide-line border-y border-line">
         {projects.map((project, i) => (
           <ProjectRow key={project.slug} project={project} index={i} />
         ))}

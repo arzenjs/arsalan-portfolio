@@ -4,7 +4,7 @@ import { site, socials, nav } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="mt-16">
+    <footer className="hairline-t mt-16">
       <div className="shell py-14">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
@@ -61,7 +61,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-faint sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-faint sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {site.fullName}</p>
           <p>JavaScript · Next.js · Tailwind CSS</p>
         </div>

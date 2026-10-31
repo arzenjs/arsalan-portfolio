@@ -13,10 +13,7 @@ const HIDE_DELTA = 8; // dead-zone so small scroll jitters never flicker
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [activeSection, setActiveSection] = useState(() => {
-    if (typeof window === "undefined") return null;
-    return window.location.hash ? window.location.hash.slice(1) : null;
-  });
+  const [activeSection, setActiveSection] = useState(null);
   const [navigationIntent, setNavigationIntent] = useState(null);
   const [hoveredSection, setHoveredSection] = useState(null);
   const navigationIntentRef = useRef(null);
@@ -80,7 +77,8 @@ export default function Nav() {
       const delta = y - lastScrollY.current;
       lastScrollY.current = y;
 
-      if (y <= HIDE_THRESHOLD_Y) {
+      const isNavigating = Boolean(navigationIntentRef.current);
+      if (isNavigating || y <= HIDE_THRESHOLD_Y) {
         setHidden(false);
       } else if (delta > HIDE_DELTA) {
         setHidden(true);
@@ -88,7 +86,7 @@ export default function Nav() {
         setHidden(false);
       }
 
-      if (navigationIntentRef.current) {
+      if (isNavigating) {
         if (!("onscrollend" in document) && !settleFrame) {
           stableFrames = 0;
           previousScrollY = window.scrollY;
@@ -232,9 +230,7 @@ export default function Nav() {
       style={{ transform: navHidden ? "translateY(-110%)" : "translateY(0)" }}
     >
       <div className="shell relative z-20 flex h-20 items-center justify-between">
-        {/* The floating rounded bar is the only chrome: no extra header
-            borders, background bars or ring shadows around it. */}
-        <div className="w-full rounded-full bg-bg/60 px-3.5 py-2.5 backdrop-blur-md md:px-5">
+        <div className="w-full rounded-full border border-line/80 bg-bg/60 px-3.5 py-2.5 backdrop-blur-md md:px-5">
           <div className="flex items-center justify-between gap-4">
             <Link
               href="/"
@@ -276,6 +272,8 @@ export default function Nav() {
                       <motion.span
                         layoutId="nav-indicator"
                         className="absolute inset-x-1 -bottom-1.5 block h-px rounded-full bg-ink"
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        animate={{ opacity: 1, scaleX: 1 }}
                         transition={{ type: "spring", stiffness: 500, damping: 42 }}
                         aria-hidden="true"
                       />
@@ -318,7 +316,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -12, height: 0 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="mx-4 rounded-2xl bg-bg/95 backdrop-blur-md md:hidden"
+            className="mx-4 rounded-2xl border border-line bg-bg/95 backdrop-blur-md md:hidden"
           >
             <ul className="flex flex-col px-5 py-3">
               {nav.map((item, index) => {
@@ -342,7 +340,7 @@ export default function Nav() {
                           ? "true"
                           : undefined
                       }
-                      className={`group flex items-center justify-between py-3.5 font-display text-xl tracking-tight transition-colors ${
+                      className={`group flex items-center justify-between border-b border-line py-3.5 font-display text-xl tracking-tight transition-colors ${
                         active ? "text-ink" : "text-dim"
                       }`}
                     >
