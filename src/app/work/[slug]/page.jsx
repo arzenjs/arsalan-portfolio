@@ -71,7 +71,7 @@ export default async function ProjectPage({ params }) {
         <Reveal>
           <div className="flex flex-wrap items-center gap-3">
             <p className="eyebrow">Case study {String(index + 1).padStart(2, "0")}</p>
-            <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
               {project.kind}
             </span>
           </div>
@@ -85,8 +85,8 @@ export default async function ProjectPage({ params }) {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <dl className="rounded-xl border border-line bg-panel p-6">
-            <div className="border-b border-line pb-4">
+          <dl className="p-2">
+            <div className="pb-4">
               <dt className="eyebrow">Links</dt>
               <dd className="mt-3 flex flex-wrap gap-3">
                 {project.live ? (
@@ -100,7 +100,7 @@ export default async function ProjectPage({ params }) {
                     Live demo
                   </a>
                 ) : (
-                  <span className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
+                  <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
                     <ExternalLink className="size-3.5" aria-hidden="true" />
                     Demo not published
                   </span>
@@ -110,13 +110,13 @@ export default async function ProjectPage({ params }) {
                     href={project.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="pressable inline-flex items-center gap-2 rounded-full border border-line-strong px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:border-ink"
+                    className="pressable inline-flex items-center gap-2 rounded-full border border-line-strong px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink"
                   >
                     <Code2 className="size-3.5" aria-hidden="true" />
                     {project.repoNote || "Source"}
                   </a>
                 ) : (
-                  <span className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
+                  <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
                     <Code2 className="size-3.5" aria-hidden="true" />
                     {project.repoNote || "Source private"}
                   </span>
@@ -129,7 +129,7 @@ export default async function ProjectPage({ params }) {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-dim"
+                    className="rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-dim"
                   >
                     {tech}
                   </span>
@@ -142,7 +142,7 @@ export default async function ProjectPage({ params }) {
 
       <Reveal>
         <figure className="mt-14">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-line bg-panel">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
             <Image
               src={project.cover}
               alt={`${project.name} interface preview`}
@@ -174,14 +174,14 @@ export default async function ProjectPage({ params }) {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <aside className="h-fit rounded-xl border border-line bg-panel p-6">
+          <aside className="h-fit p-2">
             <h2 className="eyebrow flex items-center gap-2">
               <Info className="size-3.5" aria-hidden="true" />
               Honest status
             </h2>
             <ul className="mt-5 space-y-3">
               {project.caveats.map((caveat) => (
-                <li key={caveat} className="border-l border-line-strong pl-4 text-sm leading-relaxed text-dim">
+                <li key={caveat} className="text-sm leading-relaxed text-dim">
                   {caveat}
                 </li>
               ))}
@@ -193,7 +193,7 @@ export default async function ProjectPage({ params }) {
       <Reveal>
         <Link
           href={`/work/${next.slug}`}
-          className="group mt-8 flex items-center justify-between border-t border-line py-10"
+          className="group mt-8 flex items-center justify-between py-10"
         >
           <div>
             <p className="eyebrow">Next project</p>

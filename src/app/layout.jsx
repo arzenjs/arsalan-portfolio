@@ -2,6 +2,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono, Instrument_Serif } from "next/fon
 import { site, socials } from "@/lib/site";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import CursorGlow from "@/components/CursorGlow";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -100,7 +101,7 @@ function JsonLdScripts() {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable} ${instrument.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable} ${instrument.variable}`}>
       <body className="min-h-dvh bg-bg font-sans text-ink antialiased">
         <a
           href="#main"
@@ -108,6 +109,7 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
+        <CursorGlow />
         <JsonLdScripts />
         <Nav />
         <main id="main">{children}</main>

@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="relative z-10">
             <p className="stagger inline-flex flex-wrap items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-dim">
-              <span style={{ "--stagger": 0 }} className="rounded-full border border-line bg-panel/70 px-2.5 py-1.5 text-faint">
+              <span style={{ "--stagger": 0 }} className="text-faint">
                 {site.role} • {site.tagline}
               </span>
               {/* <span style={{ "--stagger": 1 }} className="text-faint">•</span> */}
@@ -54,7 +54,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/work"
-                className="pressable group inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink hover:bg-panel"
+                className="pressable group inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-panel"
               >
                 Explore my work
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
@@ -84,14 +84,13 @@ export default function Hero() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[28rem] lg:max-w-none">
-            <div className="absolute -right-1 bottom-6 z-10 hidden rounded-full border border-line bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
+            <div className="absolute -right-1 bottom-6 z-10 hidden rounded-full bg-bg/80 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-dim md:block">
               Next.js · React · Node
             </div>
 
             <figure className="stagger relative" style={{ "--stagger": 4 }}>
-              <div className="absolute -inset-4 rounded-[2rem] border border-line/60 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_68%)] blur-2xl" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-3 shadow-[0_1rem_2.5rem_rgba(0,0,0,0.35)]">
-                <div className="absolute left-5 top-5 z-10 rounded-full border border-line bg-bg/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/80 backdrop-blur-sm">
+              <div className="relative overflow-hidden rounded-[2rem]">
+                <div className="absolute left-5 top-5 z-10 rounded-full bg-bg/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/80 backdrop-blur-sm">
                   {site.alias}.dev
                 </div>
                 <Image
@@ -100,7 +99,7 @@ export default function Hero() {
                   width={880}
                   height={1100}
                   priority
-                  className="h-[22rem] w-full rounded-[1.5rem] object-cover grayscale transition-all duration-700 ease-out hover:scale-[1.015] sm:h-[28rem] lg:h-[31rem]"
+                  className="h-[22rem] w-full object-cover grayscale transition-all duration-700 ease-out hover:scale-[1.015] sm:h-[28rem] lg:h-[31rem]"
                 />
               </div>
             </figure>
@@ -108,7 +107,7 @@ export default function Hero() {
         </div>
 
         <div className="stagger mt-12" style={{ "--stagger": 8 }}>
-          <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-3">
             {site.facts.map((fact) => (
               <div key={fact.label} className="bg-bg/95 px-5 py-4 transition-colors duration-300 hover:bg-panel">
                 <p className="eyebrow text-[10px]">{fact.label}</p>

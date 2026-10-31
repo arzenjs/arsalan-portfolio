@@ -4,7 +4,6 @@ import { ArrowUpRight, Code2, ExternalLink, FileText } from "lucide-react";
 import { projects } from "@/lib/projects";
 import { site, devLab } from "@/lib/site";
 import Reveal from "@/components/Reveal";
-import GlareHover from "@/components/GlareHover";
 
 export const metadata = {
   title: "Work",
@@ -46,11 +45,10 @@ function WorkJsonLd() {
 function ProjectCard({ project, index }) {
   return (
     <Reveal delay={(index % 2) * 0.08} className="h-full">
-      <GlareHover className="h-full rounded-2xl">
-        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel transition-colors duration-300 hover:border-line-strong">
+        <article className="group relative flex h-full flex-col overflow-hidden">
           <Link
           href={`/work/${project.slug}`}
-          className="relative block aspect-[16/10] overflow-hidden border-b border-line"
+          className="relative block aspect-[16/10] overflow-hidden"
           aria-label={`${project.name} case study`}
           tabIndex={-1}
         >
@@ -65,7 +63,7 @@ function ProjectCard({ project, index }) {
 
         <div className="flex flex-1 flex-col p-6 sm:p-7">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
               {project.kind}
             </span>
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-faint">
@@ -87,7 +85,7 @@ function ProjectCard({ project, index }) {
             {project.stack.slice(0, 5).join(" · ")}
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2.5 border-t border-line pt-5">
+          <div className="mt-6 flex flex-wrap items-center gap-2.5 pt-5">
             {project.live && (
               <a
                 href={project.live}
@@ -104,7 +102,7 @@ function ProjectCard({ project, index }) {
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pressable inline-flex items-center gap-1.5 rounded-full border border-line-strong px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-ink hover:border-ink"
+                className="pressable inline-flex items-center gap-1.5 rounded-full border border-line-strong px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-ink"
               >
                 <Code2 className="size-3" aria-hidden="true" />
                 Source
@@ -112,7 +110,7 @@ function ProjectCard({ project, index }) {
             )}
             <Link
               href={`/work/${project.slug}`}
-              className="group/link inline-flex items-center gap-1.5 rounded-full border border-transparent px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim transition-colors hover:text-ink"
+              className="group/link inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim transition-colors hover:text-ink"
             >
               <FileText className="size-3" aria-hidden="true" />
               Case study
@@ -121,7 +119,6 @@ function ProjectCard({ project, index }) {
           </div>
         </div>
         </article>
-      </GlareHover>
     </Reveal>
   );
 }
@@ -147,15 +144,15 @@ export default function WorkPage() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-10 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
-            <div className="bg-bg p-5">
+          <div className="mt-10 grid gap-8 sm:grid-cols-2">
+            <div>
               <p className="eyebrow">Full-stack web application</p>
               <p className="mt-2 text-sm leading-relaxed text-dim">
                 A complete product: authentication, data layer, API routes and a
                 deployed build. Everything runs end to end.
               </p>
             </div>
-            <div className="bg-bg p-5">
+            <div>
               <p className="eyebrow">Industry solution demonstration</p>
               <p className="mt-2 text-sm leading-relaxed text-dim">
                 A realistic build for a fictional business in a real industry.
@@ -173,7 +170,7 @@ export default function WorkPage() {
       </div>
 
       <Reveal>
-        <div className="mt-16 flex flex-col gap-6 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-6 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-xl text-sm leading-relaxed text-dim">
             {devLab.note}{" "}
             <a

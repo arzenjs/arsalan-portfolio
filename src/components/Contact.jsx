@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { ArrowUpRight, CheckCircle2, Loader2, AlertCircle, Mail } from "lucide-react";
 import { site, socials } from "@/lib/site";
-import GlareHover from "@/components/GlareHover";
 import FluxLines from "@/components/FluxLines";
 
 const budgetOptions = [
@@ -53,10 +52,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className="shell pt-12 md:pt-16" aria-labelledby="contact-heading">
-      <div className="relative overflow-hidden rounded-2xl border border-line bg-panel p-7 sm:p-10 md:p-14">
+      <div className="relative overflow-hidden py-7 sm:py-10 md:py-14">
         <FluxLines className="opacity-60" />
-        <GlareHover className="relative rounded-2xl">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <div className="relative grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <div>
             <p className="eyebrow">04 / Contact</p>
             <h2 id="contact-heading" className="display mt-4 text-[clamp(2rem,4.5vw,3.5rem)]">
@@ -215,8 +213,7 @@ export default function Contact() {
               private database solely so I can reply to you.
             </p>
           </form>
-          </div>
-        </GlareHover>
+        </div>
       </div>
     </section>
   );

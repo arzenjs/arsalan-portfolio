@@ -9,7 +9,7 @@ function ProjectRow({ project, index }) {
     <Reveal delay={index * 0.06}>
       <Link
         href={`/work/${project.slug}`}
-        className="group grid gap-6 rounded-xl border border-transparent px-4 py-8 transition-[background-color,border-color] duration-300 hover:border-ink/10 hover:bg-panel/40 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:px-6 md:py-10"
+        className="group grid gap-6 px-4 py-8 transition-colors duration-300 md:grid-cols-[auto_1fr_auto] md:items-center md:gap-10 md:px-6 md:py-10"
         aria-label={`${project.name} — ${project.summary}`}
       >
         <span className="font-mono text-xs tracking-[0.2em] text-faint transition-colors duration-300 group-hover:text-dim">
@@ -17,7 +17,7 @@ function ProjectRow({ project, index }) {
         </span>
 
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
-          <div className="relative hidden h-24 w-40 shrink-0 overflow-hidden rounded-lg border border-line sm:block">
+          <div className="relative hidden h-24 w-40 shrink-0 overflow-hidden rounded-lg sm:block">
             <Image
               src={project.cover}
               alt={`${project.name} interface preview`}
@@ -31,7 +31,7 @@ function ProjectRow({ project, index }) {
               <h3 className="font-display text-2xl font-medium tracking-tight text-ink transition-transform duration-300 group-hover:translate-x-1 sm:text-3xl">
                 {project.name}
               </h3>
-              <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+              <span className="rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
                 {project.kind}
               </span>
             </div>
@@ -79,7 +79,7 @@ export default function Projects() {
         </div>
       </Reveal>
 
-      <div role="list" className="divide-y divide-line border-y border-line">
+      <div role="list">
         {projects.map((project, i) => (
           <ProjectRow key={project.slug} project={project} index={i} />
         ))}

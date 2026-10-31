@@ -3,7 +3,7 @@
 export default function Marquee({ items, ariaLabel }) {
   const doubled = [...items, ...items];
   return (
-    <div className="marquee-mask overflow-hidden border-y border-line py-4" aria-label={ariaLabel}>
+    <div className="marquee-mask overflow-hidden py-4" aria-label={ariaLabel}>
       <div className="marquee-track items-center gap-0">
         {doubled.map((item, i) => (
           <span key={i} className="flex items-center" aria-hidden={i >= items.length}>

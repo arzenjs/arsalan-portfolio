@@ -234,7 +234,7 @@ export default function Nav() {
       <div className="shell relative z-20 flex h-20 items-center justify-between">
         {/* The floating rounded bar is the only chrome: no extra header
             borders, background bars or ring shadows around it. */}
-        <div className="w-full rounded-full border border-line/80 bg-bg/60 px-3.5 py-2.5 backdrop-blur-md md:px-5">
+        <div className="w-full rounded-full bg-bg/60 px-3.5 py-2.5 backdrop-blur-md md:px-5">
           <div className="flex items-center justify-between gap-4">
             <Link
               href="/"
@@ -288,7 +288,7 @@ export default function Nav() {
               })}
               <a
                 href={pathname === "/" ? "#contact" : "/#contact"}
-                className="pressable group inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-ink px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-bg transition-colors hover:border-ink hover:bg-panel hover:text-ink"
+                className="pressable group inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-ink px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-bg transition-colors hover:bg-panel hover:text-ink"
               >
                 Start a project
                 <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
@@ -318,7 +318,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -12, height: 0 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="mx-4 rounded-2xl border border-line bg-bg/95 backdrop-blur-md md:hidden"
+            className="mx-4 rounded-2xl bg-bg/95 backdrop-blur-md md:hidden"
           >
             <ul className="flex flex-col px-5 py-3">
               {nav.map((item, index) => {
@@ -342,7 +342,7 @@ export default function Nav() {
                           ? "true"
                           : undefined
                       }
-                      className={`group flex items-center justify-between border-b border-line py-3.5 font-display text-xl tracking-tight transition-colors ${
+                      className={`group flex items-center justify-between py-3.5 font-display text-xl tracking-tight transition-colors ${
                         active ? "text-ink" : "text-dim"
                       }`}
                     >

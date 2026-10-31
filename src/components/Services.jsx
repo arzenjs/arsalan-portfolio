@@ -1,7 +1,6 @@
 import { Check } from "lucide-react";
 import { services, processSteps } from "@/lib/site";
 import Reveal from "@/components/Reveal";
-import GlareHover from "@/components/GlareHover";
 
 export default function Services() {
   return (
@@ -21,28 +20,26 @@ export default function Services() {
         </div>
       </Reveal>
 
-      <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-3">
+      <div className="grid gap-10 md:grid-cols-3">
         {services.map((service, i) => (
-          <Reveal key={service.title} delay={i * 0.08} className="bg-bg transition-colors duration-300 hover:bg-panel">
-            <GlareHover className="h-full">
-              <article className="flex h-full flex-col p-7 md:p-8">
-                <p className="font-mono text-xs tracking-[0.2em] text-faint">{service.index}</p>
-                <h3 className="mt-4 font-display text-xl font-medium tracking-tight text-ink sm:text-2xl">
-                  {service.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-dim">
-                  {service.description}
-                </p>
-                <ul className="mt-6 space-y-2 border-t border-line pt-5">
-                  {service.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2.5 text-sm text-dim">
-                      <Check className="mt-0.5 size-3.5 shrink-0 text-emerald-400/80" aria-hidden="true" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </GlareHover>
+          <Reveal key={service.title} delay={i * 0.08}>
+            <article className="flex h-full flex-col p-7 md:p-8">
+              <p className="font-mono text-xs tracking-[0.2em] text-faint">{service.index}</p>
+              <h3 className="mt-4 font-display text-xl font-medium tracking-tight text-ink sm:text-2xl">
+                {service.title}
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-dim">
+                {service.description}
+              </p>
+              <ul className="mt-6 space-y-2 pt-5">
+                {service.points.map((point) => (
+                  <li key={point} className="flex items-start gap-2.5 text-sm text-dim">
+                    <Check className="mt-0.5 size-3.5 shrink-0 text-emerald-400/80" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </article>
           </Reveal>
         ))}
       </div>
@@ -52,7 +49,7 @@ export default function Services() {
         <Reveal>
           <p className="eyebrow pb-8">How a project runs</p>
         </Reveal>
-        <ol className="grid gap-8 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-8 pt-10 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step, i) => (
             <Reveal as="li" key={step.index} delay={i * 0.08}>
               <p className="font-mono text-xs tracking-[0.2em] text-faint">{step.index}</p>
