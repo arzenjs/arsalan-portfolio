@@ -95,11 +95,11 @@ export default function Hero() {
                 </div>
                 <Image
                   src={site.portrait}
-                  alt="Portrait of Arsalan (Mohammad Arsalan Sheikh), full-stack web developer"
+                  alt="Portrait"
                   width={880}
                   height={1100}
                   priority
-                  className="h-[22rem] w-full object-cover grayscale transition-all duration-700 ease-out hover:scale-[1.015] sm:h-[28rem] lg:h-[31rem]"
+                  className="h-[22rem] rounded-[2rem] w-full object-cover grayscale transition-all duration-700 ease-out hover:scale-[1.015] sm:h-[28rem] lg:h-[31rem]"
                 />
               </div>
             </figure>
