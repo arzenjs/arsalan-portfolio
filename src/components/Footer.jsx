@@ -11,7 +11,7 @@ export default function Footer() {
             <p className="eyebrow">Contact</p>
             <a
               href={`mailto:${site.email}`}
-              className="link-sweep mt-4 inline-block font-display text-xl font-medium tracking-tight text-ink sm:text-2xl break-all"
+              className="link-sweep mt-4 inline-block max-w-full break-words font-display text-xl font-medium tracking-tight text-ink [overflow-wrap:anywhere] sm:text-2xl"
             >
               {site.email}
             </a>

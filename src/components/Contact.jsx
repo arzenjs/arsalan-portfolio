@@ -67,18 +67,15 @@ export default function Contact() {
             </p>
             <a
               href={`mailto:${site.email}`}
-              className="group mt-6 inline-flex items-center gap-3 text-ink"
+              className="group mt-6 inline-flex max-w-full min-w-0 flex-wrap items-center gap-3 text-ink"
             >
               <span className="inline-flex size-10 items-center justify-center rounded-full border border-line-strong transition-colors group-hover:bg-ink group-hover:text-bg">
                 <Mail className="size-4" aria-hidden="true" />
               </span>
-              <span className="link-sweep font-medium break-all">{site.email}</span>
+              <span className="link-sweep min-w-0 font-medium break-words [overflow-wrap:anywhere]">{site.email}</span>
             </a>
 
-            <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
-              Elsewhere: {socials.map((s) => s.label).join(" · ")}
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-8 flex flex-wrap gap-2">
               {socials.slice(0, 4).map((s) => (
                 <a
                   key={s.label}

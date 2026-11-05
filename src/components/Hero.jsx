@@ -19,8 +19,8 @@ export default function Hero() {
       <div className="shell relative pb-14 md:pb-16">
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="relative z-10">
-            <p className="stagger inline-flex flex-wrap items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-dim">
-              <span style={{ "--stagger": 0 }} className="rounded-full border border-line bg-panel/70 px-2.5 py-1.5 text-faint">
+            <p className="stagger inline-flex max-w-full flex-wrap items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-dim">
+              <span style={{ "--stagger": 0 }} className="max-w-full whitespace-normal rounded-full border border-line bg-panel/70 px-2.5 py-1.5 text-center leading-relaxed text-balance text-faint">
                 {site.role} • {site.tagline}
               </span>
               {/* <span style={{ "--stagger": 1 }} className="text-faint">•</span> */}
@@ -61,7 +61,7 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="stagger mt-8 flex flex-wrap items-center gap-x-5 gap-y-3" style={{ "--stagger": 7 }}>
+            <div className="stagger mt-8 flex max-w-md flex-wrap items-center gap-x-4 gap-y-3 sm:gap-x-5" style={{ "--stagger": 7 }}>
               {heroSocials.map((s) => (
                 <a
                   key={s.label}
